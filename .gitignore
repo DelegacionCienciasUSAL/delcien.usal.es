@@ -7,13 +7,6 @@ __pycache__/
 *.sqlite3
 *.db
  
-# Project specific
-src/static/
-src/media/
-
-# Nginx config
-server/sites-enabled/django
- 
 # Unit test and coverage
 htmlcov/
 .tox/
