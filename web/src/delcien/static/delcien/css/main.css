@@ -1,0 +1,214 @@
+/* 	Hoja de estilo :	main.css
+ * 	Estilo para el "template" principal
+
+ *	Frameworks usados :
+ *		Foundation 6.3.1
+ *		(foundation.min.css, foundation.min.jss)
+ *		JQuery 2.2.4
+ *		(jquery.js)
+ *		(what-input.js)
+ */
+html{height: 100%;}
+header, main{
+	width: 100%;
+	margin: 0 auto;
+}
+main{max-width: 1000px; min-height: 500px;}
+main{background-color: white !important;}
+
+nav#social {background-color: #4D4D4D;}
+nav#social ul{	
+	margin: 0 0 0 10px;
+	list-style: none; 
+	display: flex;
+	flex-direction: row;
+}
+footer nav#social ul{	margin: 0 10px 0 0;	justify-content: flex-end;}
+nav#social li{display: flex; margin: 0 2px;}
+nav#social li a{
+	transition: background-color, box-shadow 0.5s ease-in-out 0s;
+	display: inline-block;
+	margin: 6px 0;
+	align-self: center;
+	width: 1.7em;
+	height: 1.7em;
+	border-radius: 50%;
+	background-color: #666666;
+}
+nav#social li a:hover{	/*background-color: #D22020;*/	box-shadow: 0 0 7px 2px #D22020 inset;}
+
+/*	HEADER
+ */
+header{	background-color: white;}
+div.banner{
+	/*height: 160px;*/
+    height: 80px;
+	display: flex;
+	align-items: center;
+	background: #fff url(/static/delcien/assets/imagen-corporativa/img/header_mejorado.png) no-repeat center top;
+}
+div.banner div#universidad{display: none;}
+div.banner div#delegacion{
+	color: #D22020;
+    display: flex;
+    margin: 5em auto;
+    align-items: center;
+    flex-direction: column;
+}
+div.banner div#delegacion h1, div.banner div#delegacion h2{margin: 0;}
+div.banner div#delegacion h1{    font-size: 1.5em;}
+div.banner div#delegacion h2{    font-size: 1.4em;}
+
+header nav#principal{	background-color: #D22020;}
+header nav#principal a{ box-sizing: border-box;	color: white;}
+header nav#principal li li:hover{	background-color: #bd1c1c;}
+header nav#principal li li:active{	background-color: #a81919;}
+header nav#principal a::after{	border-color: white transparent transparent;}
+
+header nav#principal #centrado{display: none;}
+
+header nav#principal.flotante{
+	z-index: 15;
+	position: fixed;
+	width: 100%;
+	top: 0;
+}
+
+/*	MAIN
+ */
+main{background-color: grey;}
+
+/*	FOOTER
+ */
+footer section#info-pagina{
+	margin: 0;
+	padding: 1em 0;
+	background-color: #666666;	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+footer section#info-pagina a, footer section#info-pagina p{margin: 0;	font-size:0.8em; color: white;}
+
+footer span#call-to-action{
+	padding: 0.75em 0;
+	border-top: 0.2em solid #4D4D4D;
+	border-bottom: 0.2em solid #4D4D4D;
+	width: 90%;
+	max-width: 768px;
+}
+footer span#call-to-action span.input-group-label{	display: none;}
+footer span#call-to-action .button{	background-color: #D22020;}
+footer span#call-to-action .button:hover{	
+	background: white;
+	color: #D22020;
+	box-shadow: 0 0 0 3px #D22020;
+}
+footer span#call-to-action div#enviar-sugerencia{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+footer span#call-to-action div#enviar-sugerencia .button{	display: inline-block;}
+
+/*	Dispositivo : Móvil vertical  ***************************************//*
+ *	320px <= Ancho < 568px
+ */
+@media screen and (min-width: 320px){
+	/*	HEADER
+	 */
+
+	/*	MAIN
+	 */
+	main{background-color: green;}
+
+	/*	FOOTER
+	 */
+}
+
+/*	Dispositivo : Móvil horizontal  *************************************//*
+
+ *	568px <= Ancho < 768px
+ */
+@media screen and (min-width: 568px){
+	/*	HEADER
+	 */
+	div.banner div#delegacion h1{	font-size: 1.8em;}
+	div.banner div#delegacion h2{	font-size: 1.6em;}
+
+	/*	MAIN
+	 */
+	main{background-color: yellow;}
+	/*	FOOTER
+	 */
+	footer section#info-pagina a, footer section#info-pagina p{	font-size:1em;}
+	footer span#call-to-action span.input-group-label{	display: table-cell;}
+}
+
+/*	Dispositivo : Tableta vertical  *************************************//*
+
+ *	768px <= Ancho < 1024px
+ */
+@media screen and (min-width: 768px){
+	/*	HEADER
+	 */
+	div.banner{
+        height: 160px;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    div.banner div#universidad{
+        display: flex;
+        flex-direction: column;
+    }
+    div.banner div#universidad img{	width: 20em;}
+    div.banner div#universidad p{	margin: 0;}
+    div.banner div#delegacion{	margin: 0;	align-items: flex-start;}	
+	div.banner div#delegacion h1{	font-size: 2.1em;}
+	div.banner div#delegacion h2{	font-size: 1.8em;}
+	/*	MAIN
+	 */
+	main{background-color: orange;}
+
+	/*	FOOTER
+	 */
+}
+
+/*	Dispositivo : Tableta horizontal  ***********************************//*
+
+ *	1024px <= Ancho < 1170px
+ */
+@media screen and (min-width: 1024px){
+	/*	HEADER
+	 */
+	header nav#principal #centrado{display: block;}
+	header nav#principal #desplegable{display: none;}
+	div.banner{max-width: 1000px; margin: 0 auto;}
+	div.banner div#delegacion h1{	font-size: 2.3em;}
+	div.banner div#delegacion h2{	font-size: 2.0em;}
+
+	/*	MAIN
+	 */
+	main{background-color: red;}
+
+	/*	FOOTER
+	 */
+}
+
+/*	Dispositivo : Escritorio de ordenador  ******************************//*
+
+ *	1170px <= Ancho
+ */
+@media screen and (min-width: 1170px){
+	/*	HEADER
+	 */
+
+	/*	MAIN
+	 */
+	main{background-color: violet;}
+
+	/*	FOOTER
+	 */
+}

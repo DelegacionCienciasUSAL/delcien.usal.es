@@ -1,0 +1,264 @@
+{% extends "delcien/main.html" %}
+
+{% comment %}
+<!--{% block title %}
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}	
+{% endblock %}
+
+{% block footer %}
+{% endblock %} -->
+{% endcomment %}
+{% block links %}<link rel="stylesheet" type="text/css" href="/static/quienes_somos/css/main.css">{% endblock %}
+
+{% block content %}	
+	<img src="http://www.lacronicadesalamanca.com/wp-content/uploads/2015/04/image001.jpg">
+	<section id="delegacion" class="tipo-contenedor">
+    	<h1 class="titulo-seccion">La delegación</h1>
+    		<div class="contenedor-icono-texto">
+    			<div class="contenido-icono">
+    				<img src="/static/quienes_somos/assets/svg/006-raise-your-hand-to-ask.svg" alt="Fichero">
+    			</div>
+    			<div class="contenido-texto">
+				 	La delegación se encarga de representar a todos los estudiantes de
+                    la Facultad de Ciencias de la Universidad de Salamanca, y atender los derechos e intereses 
+                    en los aspectos tanto académicos como profesionales en las diferentes carreras que se imparten.
+                    <div class="contenedor-tres-columnas" id="carreras">
+                        <div class="contenido-texto">
+                            <ul>
+                                <li>Ingeniería Informática</li>
+                                <li>Ingeniería Geológica</li>
+                            </ul>
+                        </div>
+                        <div class="contenido-texto">
+                            <ul>
+                                <li>Geología</li>
+                                <li>Estadística</li>
+                            </ul>
+                        </div>
+                        <div class="contenido-texto">
+                            <ul>
+                                <li>Matemáticas</li>
+                                <li>Física</li>
+                            </ul>
+                        </div>
+                    </div>
+    			</div>
+    		</div>
+    		<div class="contenedor-icono-texto">
+    			<div class="contenido-icono">
+    				<img src="/static/quienes_somos/assets/svg/004-student.svg" alt="Fichero">
+    			</div>
+    			<div class="contenido-texto">
+                    <p>
+                        No nos limitamos a nuestra intuición, siempre estamos
+                        disponibles para escuchar las inquietudes que puedas
+                        tener e intentar solventar tus problemas. Bien por
+                        aquí, a través del correo o en la misma facultad,
+                        podrás contactar con nosotros.
+                    </p>
+    			</div>
+    		</div>
+    		<div class="contenedor-icono-texto">
+    			<div class="contenido-icono">
+    				<img src="/static/quienes_somos/assets/svg/007-college-graduation.svg" alt="Fichero">
+    			</div>
+    			<div class="contenido-texto">
+    				<p>
+                        Desde la delegación nos preocupamos por la calidad de
+                        los estudios, las condiciones en que se desarrollan, de
+                        aquellos aspectos como los horarios de bibliotecas,
+                        calendarios de exámenes y recursos para el alumnado;
+                        siempre intentando mejorar nuestra facultad.
+                    </p>
+    			</div>
+    		</div>
+    </section>
+    <section class="tipo-contenedor">
+        <h1 id="titulo-seccion">Quiénes Somos</h1>
+        <div class="contenido-texto">
+        	<p>
+        	La delegación la componen los representantes de alumnos electos -elegidos mediante votación al principio
+        	del curso académico-, entre los que se vota un grupo reducido que formará la junta directiva y que
+        	representará a la totalidad de los estudiantes.
+        	</p>
+        </div>
+        <div class="contenedor-dos-columnas">
+            <div class="contenido-texto">
+                <p>
+                    La junta directiva la componen siete personas que se
+                    encargan de mantener a la. Estos cargos son elegidos
+                    una vez por curso académico y duran hasta las
+                    siguientes elecciones.
+                </p>
+            </div>
+            <div class="contenido-texto">
+                <p>
+                    Además de la junta directiva, en la delegación de
+                    estudiantes contamos con la figura del vocal de grado,
+                    que representa a cada una de las carreras que hay en la
+                    Facultad de Ciencias, permitiendo la total
+                    representación de estudiantes.
+                </p>
+            </div>
+        </div>
+        <h1 id="titulo-seccion">Actuales cargos directivos</h1>
+        <section class="cargos">
+        	<div class="cargo">
+                <img class="foto" src={{ Presidente.imagen.url }} alt="Foto">
+			  <div class="descripcion">
+                  <h4><b>{{ Presidente.nombre }} {{ Presidente.apellidos }}</b></h4> 
+			    <p>Presidente</p> 
+			  </div>
+			</div>
+			<div class="cargo">
+                <img class="foto" src={{ Secretario.imagen.url }} alt="Foto">
+			  <div class="descripcion">
+			    <h4><b>{{ Secretario.nombre }} {{ Secretario.apellidos }}</b></h4> 
+			    <p>Secretario</p> 
+			  </div>
+			</div>
+			<div class="cargo">
+                <img class="foto" src={{ Tesorero.imagen.url }} alt="Foto">
+			  <div class="descripcion">
+			    <h4><b>{{ Tesorero.nombre }} {{ Tesorero.apellidos }}</b></h4> 
+			    <p>Tesorero</p> 
+			  </div>
+			</div>
+			<div class="cargo">
+                <img class="foto" src={{ Vocal.imagen.url }} alt="Foto">
+			  <div class="descripcion">
+			    <h4><b>{{ Vocal.nombre }} {{ Vocal.apellidos }}</b></h4> 
+			    <p>Vocal</p> 
+			  </div>
+			</div>
+        </section>
+        <section class="cargos">
+        	<div class="cargo">
+                <img class="foto" src={{ Vicepresidente.imagen.url }} alt="Foto">
+			  <div class="descripcion">
+			    <h4><b>{{ Vicepresidente.nombre }} {{ Vicepresidente.apellidos }}</b></h4> 
+			    <p>Viceresidente</p> 
+			  </div>
+			</div>
+			<div class="cargo">
+                <img class="foto" src={{ Vicesecretario.imagen.url }} alt="Foto">
+			  <div class="descripcion">
+			    <h4><b>{{ Vicesecretario.nombre }} {{ Vicesecretario.apellidos }}</b></h4> 
+			    <p>Vicesecretario</p> 
+			  </div>
+			</div>
+			<div class="cargo">
+                <img class="foto" src={{ Vicetesorero.imagen.url }} alt="Foto">
+			  <div class="descripcion">
+			    <h4><b>{{ Vicetesorero.nombre }} {{ Vicetesorero.apellidos }}</b></h4> 
+			    <p>Vicetesorero</p> 
+			  </div>
+			</div>
+        </section>
+        <h1 id="titulo-seccion">Vocalías</h1>
+        <section class="cargos">
+            {% for v in Vocalias %}
+			<div class="cargo">
+                <img class="foto" src={{ v.imagen.url }} alt="Foto">
+			  <div class="descripcion">
+                  <h4><b>{{ v.nombre }} {{ v.apellidos }}</b></h4> 
+                  <p>Vocal de {{ v.tipoVocalia }}</p> 
+			  </div>
+			</div>
+            {% endfor %}
+        </section>
+    </section>
+    <section class="tipo-contenedor">
+        <h1 id="titulo-seccion">Involúcrate</h1>
+        <div class="contenedor-dos-columnas">
+            <div class="contenido-texto">
+                <p>
+                Dado que nosotros nos encargamos de representar a la totalidad
+                de alumnos de la Facultad de Ciencias, es beneficioso que la
+                delegación esté integrada por representantes de todas las
+                titulaciones que se cursan; pudiendo así defender y apoyar
+                a los alumnos en todos los campos necesarios.
+                </p>                
+            </div>
+            <div class="contenido-texto">
+                <p>
+                Por eso es importante que, si eres representante en cualquiera
+                de las titulaciones y crees que falta la presencia de tus
+                representados en la delegación, nos lo hagas saber.
+                </p>                
+            </div>
+        </div>
+    </section>
+    <section class="tipo-contenedor">
+        <h1 id="titulo-seccion">Con quién colaboramos</h1>
+        <div class="contenido-texto">
+        	<p>
+                Colaboramos con organizaciones y colectivos de estudiantes que
+                hay dentro del marco de la universidad ó la representación
+                estudiantil.
+        	</p>
+        </div>
+
+        {% for c in Colaboradores %}
+        <div class="colaborador">
+            <div class="contenedor-dos-columnas">
+                <div class="contenido-texto">
+                    <div class="logo-colaborador">
+                        <img src="{{c.logo.url}}">
+                    </div>
+                </div>
+                <div class="contenido-texto">
+                    <h3 class="nombre-colaborador">{{ c.nombre }}</h3>
+                    <p>
+                        {{ c.descripcion }}
+                        La organización está formada por alumnos de tales
+                        titulaciones interesados sobre todo en tal ámbito.
+                        Organizan estos eventos y mítines, y ayudan con la
+                        actualización de contenidos de tal cosa.
+                    </p>                
+                </div>
+            </div>
+            <p>
+                Contacto | 
+                {% if c.correo %}
+                Correo electrónico : {{ c.correo }} 
+                {% endif %}
+                {% if c.correo and c.web%}
+                |
+                {% endif %}
+                {% if c.web %}
+                Página web : {{ c.web}}
+                {% endif %}
+            </p>
+        </div>
+        {% endfor %}
+    </section>
+    <section class="tipo-contenedor">
+        <h1 id="titulo-seccion">¿Qué beneficios tiene ser un representante?</h1>
+        <div class="contenedor-dos-columnas">
+            <div class="contenido-texto">
+                <p>
+                    La actividad de representación estudiantil tiene muchas
+                    ventajas en el desarrollo de habilidades y aptitudes,
+                    denominadas "soft skills"; pero también tiene ventajas más
+                    fácilmente palpables.
+                </p>                
+            </div>
+            <div class="contenido-texto">
+                <p>
+                    <ul>
+                        <li>Participación activa</li>
+                        <li>Reconocimiento de créditos</li>
+                        <li>Actividades externas y viajes</li>
+                        <li>Acceso a recursos</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

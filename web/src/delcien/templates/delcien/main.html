@@ -1,0 +1,105 @@
+{% extends "delcien/base.html" %}
+
+{% block title %}
+	Delcien-USAL
+{% endblock %}
+
+{% block header %}
+	<nav id="social">
+			<ul>
+				<li><a href=""></a></li>
+				<li><a href=""></a></li>
+				<li><a href=""></a></li>
+				<li><a href=""></a></li>
+				<li><a href=""></a></li>
+				<li><a href=""></a></li>
+			</ul>
+		</nav>
+		<div class="banner">
+			<div id="delegacion">
+				<h1 id="universitas">Delegación & Estudiantes</h1>
+	            <h2 id="universitas">Facultad & Ciencias</h2>
+			</div>
+			<div id="universidad">
+				<a href="http://www.usal.es/">
+	                <img src="/static/delcien/assets/imagen-corporativa/img/Logo_Usal_Hor_2012-big.png">
+	            </a>
+			</div>
+		</div>
+		<nav id="principal">
+			<div id="desplegable">
+	            <ul class="vertical menu" data-accordion-menu>
+		            <li>
+                        <a href="www.google.es">{{ Titulo }}</a>
+			            <ul class="menu vertical nested">
+							<li><a href="/inicio"><div>Inicio</div></a></li>
+							<li><a href="/quienes-somos"><div>¿Quiénes somos?</div></a></li>
+							<li><a href="/estructura-interna"><div>Estructura interna de la Facultad</div></a></li>
+							<li><a href="/actualidad"><div>Actividad</div></a></li>
+							<li><a href="/documentacion"><div>Documentación</div></a></li>
+							<li><a href="/contacto"><div>Contacto</div></a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="menu-centered" id="centrado">
+				<ul class="menu">
+					<li><a href="/inicio"><div>Inicio</div></a></li>
+					<li><a href="/quienes-somos"><div>¿Quiénes somos?</div></a></li>
+					<li><a href="/estructura-interna"><div>Estructura interna de la Facultad</div></a></li>
+					<li><a href="/actualidad"><div>Actividad</div></a></li>
+					<li><a href="/documentacion"><div>Documentación</div></a></li>
+					<li><a href="/contacto"><div>Contacto</div></a></li>
+				</ul>
+			</div>
+		</nav>
+{% endblock %}
+
+{% block content %}
+	
+	
+{% endblock %}
+
+{% block footer %}
+	<section id="info-pagina">
+		<span id="call-to-action">
+			<p>¡No te pierdas la oportunidad de participar en tu facultad!</p>
+			<form method="get" class="input-group" action={% url 'colaborar' %} >
+				<span class="input-group-label">Mantenme informado</span>
+				<input class="input-group-field" name="correo-colaborador" type="email" placeholder="ejemplo@correo.xx">
+				<input type="hidden" name="prev_url" value="{{ request.path }}">
+				<div class="input-group-button">
+					<input type="submit" class="button" name="solicitar-avisos" value="Avísame">
+				</div>
+			</form>
+            <form method="get"  action={% url 'sugerir' %}>
+                <p>Si tienes cualquier idea sobre cómo podríamos mejorar y no quieres 
+                esperar a decírnoslo, cuéntanoslo por aqui</p>
+                <textarea name="sugerencia" placeholder="Sugerencia ..."></textarea>
+				<input type="hidden" name="prev_url" value="{{ request.path }}">
+                <div id="enviar-sugerencia" class="input-group-button">
+                    <input type="submit" class="button" name="solicitar-avisos" value="Enviar">
+                </div>
+            </form>
+		</span>
+		<div class="menu-centered">
+            <ul class="vertical medium-horizontal menu">
+                <li><a href="#">Política de Privacidad</a></li>
+                <li><a href="/soporte">Soporte</a></li>
+                <li><a href="/admin">Login Administrador</a></li>
+                <li><a href="#">Mapa del Sitio Web</a></li>
+            </ul>
+            <p>2017 Delegación de ciencias</p>
+        </div>
+	</section>
+	<nav id="social">
+		<ul>
+			<li><a href=""></a></li>
+			<li><a href=""></a></li>
+			<li><a href=""></a></li>
+			<li><a href=""></a></li>
+			<li><a href=""></a></li>
+			<li><a href=""></a></li>
+		</ul>
+	</nav>
+{% endblock %}

@@ -1,0 +1,153 @@
+/*
+    * archivo: imagen-corporativa.css
+    * fecha de última modificación: 03/02/2017
+    *
+    * En este fichero se define el estilo que se define
+    * en la hojas de imagen corporativa, respecto a los 
+    * colores y fuentes que se han de usar.
+*/
+
+/*
+    *Colores: 
+    *   Rojo Sangre de Toro rgb(210, 32, 32)    hex: #D22020
+    *   Gris Aluminio       rgb(64, 64, 64)     hex: #4D4D4D
+    *   Gris Plata          rgb(102, 102, 102)  hex: #666666
+*/
+
+/*
+    *Fuentes:
+    *   Títulos
+
+        Siguiendo las instrucciones del manual de imagen corporativa,
+        se utiliza la fuente Universitas Studii Salamantini para títulos
+        y encabezados de secciones.
+
+        Como 'fallbacks' se establecen dos fuentes serif de estilo humanístico
+        para contrastar con el sans-serif del texto pero manteniendo
+        un estilo limpio y sencillo; los cuales también pueden usarse
+        para encabezados de párrafos con el fin de no sobrecargar la página.
+
+        Universitas Studii Salamantini
+        EB Garamond
+        x
+        Serif
+    */
+        @font-face {
+            font-family:"Universitas Studii Salamantini";
+            src:
+                url("/static/delcien/assets/imagen-corporativa/charsets/universitas-studii-salmantini/Universitas_Studii_Salamantini.eot?") format("eot"),
+                url("/static/delcien/assets/imagen-corporativa/charsets/universitas-studii-salmantini/Universitas_Studii_Salamantini.woff") format("woff"),
+                url("/static/delcien/assets/imagen-corporativa/charsets/universitas-studii-salmantini/Universitas_Studii_Salamantini.ttf") format("truetype"),
+                url("/static/delcien/assets/imagen-corporativa/charsets/universitas-studii-salmantini/Universitas_Studii_Salamantini.svg#UniversitasStudiiSalamantini") format("svg");
+            font-weight:normal;
+            font-style:normal;
+        }
+        @font-face {
+          font-family: 'EB Garamond';
+          font-style: normal;
+          font-weight: 400;
+          src: local('EB Garamond'), local('EBGaramond'), url(https://fonts.g/static/delcien.com/s/ebgaramond/v7/kYZt1bJ8UsGAPRGnkXPeFY4P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+        }
+        /*@import url('https://fonts.googleapis.com/css?family=EB+Garamond'); NO FUNCIONA EL IMPORT*/
+    /*
+     *  Enlaces de contacto y textos en los botones 
+
+        Para diferenciarlo del contenido de la página, se
+        usa un tipo sns-serif geométrico y limpio, lo más
+        ligero posible para que no destaque y pase lo más
+        desapercibido posible: el usuario buscará ese apartado
+        por lo que no debe ser perceptible para quien no lo 
+        desee.
+
+        Por problemas con chrome de escritorio con Josefin Slab,
+        se establece como prioritario Abel.
+
+        Raleway
+        Abel
+        Josefin Slab
+        Sans-serif
+    */
+        @font-face {
+            font-family:"Josefin Slab";
+            src:
+                url("/static/delcien/assets/imagen-corporativa/charsets/josefin-slab/JosefinSlab-Regular.eot?") format("eot"),
+                url("/static/delcien/assets/imagen-corporativa/charsets/josefin-slab/JosefinSlab-Regular.woff") format("woff"),
+                url("/static/delcien/assets/imagen-corporativa/charsets/josefin-slab/JosefinSlab-Regular.ttf") format("truetype"),
+                url("/static/delcien/assets/imagen-corporativa/charsets/josefin-slab/JosefinSlab-Regular.svg#UniversitasStudiiSalamantini") format("svg");
+            font-weight:normal;
+            font-style:normal;
+        }
+        @font-face {
+            font-family:"Raleway";
+            src: url("/static/delcien/assets/imagen-corporativa/charsets/raleway/Raleway-Medium.ttf") format("truetype");
+            font-weight:normal;
+            font-style:normal;
+        }
+        @font-face {
+          font-family: 'Abel';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Abel'), local('Abel-Regular'), url(https://fonts.g/static/delcien.com/s/abel/v6/brdGGFwqYJxjg2CD1E9o7g.woff2) format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+        }
+        /*@import url("https://fonts.googleapis.com/css?family=Abel"); NO FUNCIONA EL IMPORT*/
+    /*
+     *  Textos extensos o de tamaño de fuente reducido
+    
+        Se opta por fuentes sans-serif de estilo humanístico,
+        para que no sea sobrecargado pero sea agradable de leer.
+
+        El manual de imagen corporativa propone Trebuchet MS y 
+        como alternativas libres también se encuentran Liberation Sans
+        de Red Hat y Alegreya Sans Regular.
+
+        Trebuchet MS (en caso de que sea un pc, vendrá provisto por Microsoft)
+        Liberation Sans
+        Alegreya Sans Regular -- Falta de localizar
+        Tahoma -- Provisto por Microsoft
+        Sans-serif
+
+*/
+
+        @fontface{
+            font-family: "Liberation Sans";
+            src: url('/static/delcien/assets/imagen-corporativa/charsets/liberation-sans/LiberationSans-Regular-webfont.eot');
+            src: url('/static/delcien/assets/imagen-corporativa/charsets/liberation-sans/LiberationSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+                 url('/static/delcien/assets/imagen-corporativa/charsets/liberation-sans/LiberationSans-Regular-webfont.woff') format('woff'),
+                 url('/static/delcien/assets/imagen-corporativa/charsets/liberation-sans/LiberationSans-Regular-webfont.ttf') format('truetype'),
+                 url('/static/delcien/assets/imagen-corporativa/charsets/liberation-sans/LiberationSans-Regular-webfont.svg#liberation_sansregular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @fontface{
+            font-family: "Liberation Sans";
+            src: url('/static/delcien/assets/imagen-corporativa/charsets/liberation-sans/LiberationSans-Bold-webfont.eot');
+            src: url('/static/delcien/assets/imagen-corporativa/charsets/liberation-sans/LiberationSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+                 url('/static/delcien/assets/imagen-corporativa/charsets/liberation-sans/LiberationSans-Bold-webfont.woff') format('woff'),
+                 url('/static/delcien/assets/imagen-corporativa/charsets/liberation-sans/LiberationSans-Bold-webfont.ttf') format('truetype'),
+                 url('/static/delcien/assets/imagen-corporativa/charsets/liberation-sans/LiberationSans-Bold-webfont.svg#liberation_sansregular') format('svg');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+/* Estilos
+ * En la siguiente sección se aplican las fuentes antes importadas
+ */
+
+h1, h2, h3, h4, h5, h6{
+    font-family: "EB Garamond", serif;
+}
+
+h1#universitas, h2#universitas, h3#universitas, h4#universitas, h5#universitas, h6#universitas{
+    font-family: "Universitas Studii Salamantini", "EB Garamond", serif;
+}
+
+a, .texto-contacto{
+    font-family: "Raleway" , "Abel", "Josefin Slab", sans-serif;
+}
+
+p{
+    font-family: "Trebuchet MS", "Liberation Sans", "Alegreya Sans Regular", "Tahoma", sans-serif;
+}

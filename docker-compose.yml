@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+    delcien:
+      build:
+          context: ./web/
+          dockerfile: ./web.dockerfile
+      ports:
+          - "8000:8000"
+      volumes:
+          - delcienStatic:/static
+          - ./web/src:/src
+    server:
+      build: 
+        context: ./server/
+        dockerfile: ./server.dockerfile
+      ports:
+        - "80:80"
+      volumes:
+        - type: volume
+          source: delcienStatic
+          target: /usr/share/nginx/html/static
+      links:
+        - delcien:delcien
+volumes:
+    delcienStatic: {}

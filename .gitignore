@@ -1,0 +1,48 @@
+# Python compiled classes
+__pycache__/
+*.pyc
+ 
+# SQLite databases
+*.sqlite
+*.sqlite3
+*.db
+ 
+# Project specific
+src/static/
+src/media/
+
+# Nginx config
+server/sites-enabled/django
+ 
+# Unit test and coverage
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+ 
+# Translations
+*.mo
+*.pot
+ 
+# Mac OS
+.DS_*
+ 
+# Editors and IDEs (for PyCharm, SublimeText and Netbeans)
+.idea/
+*.sublime-*
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+.nb-gradle/
+ 
+# Others
+*.~
+sec_settings.py
