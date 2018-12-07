@@ -1,7 +1,7 @@
 server {
 
-    listen 80;
-    server_name not.configured.example.com;
+    listen 443 ssl;
+    server_name loaclhost;
     charset utf-8;
 
     location /static {
@@ -15,4 +15,12 @@ server {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     }
 
+    ssl on;
+    ssl_certificate     /root/certs/delcien.usal.es/delcien.crt;
+    ssl_certificate_key /root/certs/delcien.usal.es/delcien.key;
+}
+
+server {
+        listen 80;
+        return 301 https://$host$request_uri;
 }

@@ -39,3 +39,7 @@ nb-configuration.xml
 # Others
 *.~
 sec_settings.py
+*.crt
+*.pem
+*.key
+*.cert

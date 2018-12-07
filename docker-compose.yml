@@ -15,6 +15,7 @@ services:
         dockerfile: ./server.dockerfile
       ports:
         - "80:80"
+        - "443:443"
       volumes:
         - type: volume
           source: delcienStatic
