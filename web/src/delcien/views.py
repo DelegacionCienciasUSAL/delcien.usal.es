@@ -10,6 +10,9 @@ from .forms import ColaboradorFormulario
 def soporte( request):
     return( render( request, 'delcien/soporte.html'))
 
+def legal( request):
+    return( render( request, 'delcien/legal.html'))
+
 def get_colab(request):
     referer = request.META.get('HTTP_REFERER')
     if request.method == 'GET':

@@ -29,8 +29,9 @@
 	    	</p>
 	    </div>
 	    <form class="filtro-noticias" method="get" target="_self">
-	        <select name="carrera">
+	        <select name="ambito">
 	        	<option id="NON" value="NON">< ninguna ></option>
+	        	<option id="FAC" value="FAC">Facultad de Ciencias</option>
 	    		<option id="INF" value="INF">Grado en Ingeniería Informática</option>
 	    		<option id="IQI" value="IQI">Grado en Ingeniería Química</option>
 	    		<option id="FIS" value="FIS">Grado en Física</option>
@@ -48,38 +49,39 @@
 	    	</select>   
 			<button type="submit" id="filtrar" class="button" >filtrar</button>
 			
-			{% if carrera and categoria%}
+			{% if ambito and categoria%}
 				<script type="text/javascript">
-					document.getElementById('{{ carrera }}').setAttribute("selected", "True");
+					document.getElementById('{{ ambito }}').setAttribute("selected", "True");
 					document.getElementById('{{ categoria }}').setAttribute("selected", "True");
 				</script>
 	    	{% endif %}
 	    </form>
 	    <section>
-	    	{% if carrera %}
-	    		<h5>Carrera : {{ carrera }}
+	    	{% if ambito %}
+	    		<h5>Ámbito : {{ ambito }}
 	    	{% endif %}
 	    	{% if categoria %}
-	    		Categoria : {{ categoria }}</h5>
+	    		Categoría : {{ categoria }}</h5>
 	    	{% else %}
 	    		</h5	>
 	    	{% endif %}
 	    	{% if noticias %}
 	    		{% for noticia in noticias %}
-	    			<table class="noticia {{ noticia.carrera }} {{ noticia.categoria }}">
+	    			<table class="noticia {{ noticia.ambito }} {{ noticia.categoria }}">
 			    		<tr>
 			    			<td id="carrera-left"></td>
 			    			<td id="carrera-titulo"><h4>{{ noticia.titulo }}</h4></td>
 			    		</tr>
 			    		<tr id="carrera-top">
 			    			<td id="carrera-left"></td>
-			    			<td ><h5>{{ noticia.carrera }}</h5></td>
+			    			<td ><h5>{{ noticia.ambito }}</h5></td>
 			    		</tr>
 			    		<tr></tr>
 			    		<tr>
-			    			<td  id="carrera-left"><h5>{{ noticia.carrera }}</h5></td>
+			    			<td  id="carrera-left"><h5>{{ noticia.ambito }}</h5></td>
 			    			<td>
 			    				<p>
+			    					{{ noticia.categoría }}<br>
 			        				{{ noticia.noticia }}
 			        			</p>
 			    			</td>
@@ -109,23 +111,13 @@
 		{% for indice in noticias.paginator.page_range %}
 			{% if indice == noticias.number %}
 				<li class="current"><span class="show-for-sr">Estás en la página</span> {{ pagina }}</li>
+			{% elif ambito and categoria %}
+				<li><a href="/actualidad/{{ indice }}?ambito={{ ambito }}&categoria={{ categoria }}" aria-label="Page {{ indice }}">{{ indice }}</a></li>
+				
 			{% else %}
 				<li><a href="{% url 'actualidad-busqueda' indice %}" aria-label="Page {{ indice }}">{{ indice }}</a></li>
 			{% endif %}
 		{% endfor %}
 		</ul>
-
-		<!--
-	    <ul class="pagination text-center" role="navigation" aria-label="Pagination">
-		  <li class="pagination-previous disabled">Anterior</li>
-		  <li class="current"><span class="show-for-sr">Estás en la página</span> {{ pagina }}</li>
-		  <li><a href="#" aria-label="Page 2">2</a></li>
-		  <li><a href="#" aria-label="Page 3">3</a></li>
-		  <li><a href="#" aria-label="Page 4">4</a></li>
-		  <li class="ellipsis"></li>
-		  <li><a href="#" aria-label="Page 12">12</a></li>
-		  <li><a href="#" aria-label="Page 13">13</a></li>
-		  <li class="pagination-next"><a href="#" aria-label="Next page">Siguiente</a></li>
-		</ul>-->
 	</section>
 {% endblock %}
