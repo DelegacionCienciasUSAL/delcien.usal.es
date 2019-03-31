@@ -38,9 +38,6 @@ import os
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'web.delg.fc@gmail.com'
-EMAIL_HOST_PASSWORD = 'tfvr5545'
-SECRET_KEY = '2y_^s)t5=rys(7*640!cbu50l^qxx^aj5)75d*%w17jtb(q(5('
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATABASES = {
     'default': {
