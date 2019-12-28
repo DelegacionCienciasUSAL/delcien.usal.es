@@ -1,0 +1,123 @@
+{% extends "delcien/main.html" %}
+
+{% comment %}
+<!--{% block title %}
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}	
+{% endblock %}
+
+{% block footer %}
+{% endblock %} -->
+{% endcomment %}
+{% block links %}
+	<link rel="stylesheet" type="text/css" href="/static/inicio/css/main.css">
+{% endblock %}
+
+{% block content %}	
+	<img src="http://fciencias.usal.es/images/stories/cienciaspanoramicag.jpg">
+        <div class="contenedor" id="intro">
+            <p>
+                Bienvenid@ a la página de la Delegación de la Facultad de Ciencias de la Universidad de
+                Salamanca.<br>
+                Nuestra facultad recoge 6 carreras : Ingeniería Geológica,
+                Geología, Estadística, Ingeniería Informática, Física
+                y Matemáticas; con sus respectivos grados, másteres
+                y post-grados.
+                <br><br>
+                En la delegación, nos encargamos de representar y velar por el
+                estudiante y sus intereses; además de organizar eventos en la
+                facultad y colaborar en el día a día en ésta.
+            </p>
+        </div>
+        <div class="contenedor" id="destacado">
+            <p>
+                {{ Destacado }}
+            </p>
+        </div>
+		<section class="tipo-contenedor">
+        	<h1 id="titulo-seccion">Actividades en la Facultad</h1>
+        	<div class="contenedor-imagen-texto">
+                <div class="contenido-imagen">
+		        	<div class="orbit" role="region" aria-label="Actividades en la Facultad" data-orbit>
+		        		<ul class="orbit-container">
+		        			<button class="orbit-previous"><span class="show-for-sr">Previous Slide</span> &#9664;&#xFE0E;</button>
+							<button class="orbit-next"><span class="show-for-sr">Next Slide</span> &#9654;&#xFE0E;</button>
+		        			<li class="orbit-slide is-active">
+		        				<img class="orbit-image" src="/static/inicio/assets/img/cosmos-1.jpg" alt="">
+		        				<figcaption class="orbit-caption">Imagen de prueba 1</figcaption>
+		        			</li>
+		        			<li class="orbit-slide">
+		        				<img class="orbit-image" src="/static/inicio/assets/img/cosmos-2.jpg" alt="">
+		        				<figcaption class="orbit-caption">Imagen de prueba 2</figcaption>
+		        			</li>
+		        		</ul>
+		        	</div>
+		        </div>
+		        <div class="contenido-texto">
+		        	Estas son las actividades que actualmente se están llevando a cabo en la facultad. Si estás interesado en
+		        	alguna de ellas, contacta con los organizadores haciendo click en la imagen o con nosotros a través de nuestra
+		        	página de "Contacto".
+		        </div>
+		    </div>
+        </section>
+        <section class="tipo-contenedor">
+        	<h1 id="titulo-sección">Mantente al día con la Delegación</h1>
+            <div class="contenedor-dos-columnas" id="googleCalendar">
+                <div class="contenido-texto">
+                    <p>
+                        Mantente al día con lo que ocurre en la Delegación de tu
+                        Facultad, sincronizando nuestro calendario con tu cuenta de
+                        Google Calendar. Calendarios de exámenes, de trámites, de eventos, etcétera.
+                        <br><br>
+                        Puedes añadirlos fácilmente a tu cuenta de google y acceder a ellos cuando quieras, ponerte recordatorios,
+                        y colaborar añadiendo aquellas fechas que consideres importantes.
+                    </p>
+                </div>
+                <div class="contenido-texto">
+                    <div class="googleCalendar">
+                    <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;src=si0ok7vr6fg8b2uj5bba2gsl0s%40group.calendar.google.com&amp;color=%23AB8B00&amp;ctz=Africa%2FCeuta" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no">
+                    </div>
+                    </iframe>
+                </div>
+        	</div>
+        </section>
+        <section class="tipo-contenedor">
+            <h1 id="titulo-seccion">Otra sección</h1>
+            <div class="contenedor-tres-columnas">
+                <div class="contenido-texto">
+                    <p>
+                        La delegación de Estudiantes de la Faclutad de Ciencias, es
+                        el órgano oficial de representación estudiantil que procura
+                        <br>kteubvdluksjnrfgdlkjbnlksjrtmdnfb
+                        Tanto interna como externamente, la delegación se encarga
+                        de asegurar los intereses del alumno mediante[...]
+                        Organizamos eventos de charlas, []<br>
+                        También recogemos todo aquello que pueda serte útil para tu
+                        formación en la carrera; desde disponer de forma fácil de
+                        los horarios de aulas, bibliotecas y clases, hasta apuntes
+                        y soporte para tus trabajos en la carrera.
+                    <br><br>
+                    </p>
+                </div>
+                <div class="contenido-texto">
+                    <p>
+                        Oranizamos actividades para los estudiantes y colaboramos contigo para llevar a cabo tus
+                        ideas. Algunas de nuestras últimas actividades son la Feria de San Alberto, concursos durante
+                        las Fiestas de la Facultad, [ ... ].
+                    </p>
+                </div>
+                <div class="contenido-texto">
+                    <p>
+                        Nuestra filosofía es permitir y favorecer el trabajo en la Facultad. Puedes contactar con nosotros
+                        para proponer cualquier proyecto, ayudar o empezar nuevos proyectos en nuestra organización de 
+                        <a href="https://github.com/DelegacionCienciasUSAL" >Github</a>.<br>
+                        Actualmente está el proyecto de esta misma página web.
+                    </p>
+                </div>
+            </div>
+        </section>
+{% endblock %}

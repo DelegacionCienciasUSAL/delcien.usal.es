@@ -1,0 +1,6 @@
+Django==2.2.8
+
+# For tests
+pytest==5.0.1
+pytest-cov==2.7.1
+pytest-django==3.5.1
