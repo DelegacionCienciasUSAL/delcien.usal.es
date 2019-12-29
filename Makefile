@@ -1,0 +1,3 @@
+APP=delcien
+
+include *.mk
