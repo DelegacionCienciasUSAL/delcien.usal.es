@@ -1,3 +1,5 @@
+from .settings_shared import * 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -7,3 +9,5 @@ DATABASES = {
         'PORT': 5432,
     }
 }
+
+SECRET_KEY='DUE<SYvkyubhj876'

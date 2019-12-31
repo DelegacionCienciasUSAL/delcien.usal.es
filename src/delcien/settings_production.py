@@ -1,3 +1,5 @@
+from .settings_shared import * 
+
 DEBUG = False
 
 DATABASES = {
