@@ -3,10 +3,11 @@ services:
   web:
     build: .
     ports:
-        - "8000:8000"
+      - "8000:8000"
     volumes:
-        - ./src:/src
+      - ./src:/src
     links:
       - db:db
+    command: python3 /src/manage.py runserver 0.0.0.0:8000 --settings=delcien.settings_compose
   db:
     image: postgres
