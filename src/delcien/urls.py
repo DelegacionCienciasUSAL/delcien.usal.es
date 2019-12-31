@@ -16,7 +16,15 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from inicio.views import main as index
+from delcien.views import soporte, legal, get_colab, get_sug
 
 urlpatterns = [
+	url(r'^colaborar/$', get_colab, name='colaborar'),
+    url(r'^sugerir/$', get_sug, name='sugerir'),
+    url(r'^soporte/$', soporte),
+    url(r'^legal/$', legal),
+    url(r'^admin/', admin.site.urls),
+    url(r'^inicio/', include( 'inicio.urls')),
+    url('admin/', admin.site.urls),
     url(r'^$', index),
 ]
