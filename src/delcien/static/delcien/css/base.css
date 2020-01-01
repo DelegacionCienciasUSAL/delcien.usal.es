@@ -70,6 +70,38 @@ img{
   width: 100%;
 }
 
+nav.social ul{
+  margin: 0;
+  padding: 5px 1em;
+  background-color: var(--gris-aluminio);
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav.social li{
+  display: block;
+  margin: 0 .2em;
+}
+
+nav.social a{
+  border-radius: 50%;
+  margin: 0;
+  display: inline-block;
+  background-color: var(--gris-plata);
+  color: var(--gris-aluminio);
+  width: 30px;
+  height: 30px;
+}
+
+nav.social a:hover{
+  color: black;
+}
+
+nav.social .fi-padding{
+  margin-left: 4px;
+}
+
 /*  Dispositivo : Móvil vertical  ***************************************//*
  *  320px <= Ancho < 568px
  */
@@ -97,6 +129,12 @@ img{
   #banner div#universidad{
     display: flex;
     flex-direction: column;
+  }
+  nav.social ul{
+    justify-content: flex-start;
+  }
+  footer nav.social ul{
+    justify-content: flex-end;
   }
   #banner div#universidad img{  width: 20em;}
   #banner div#universidad p{  margin: 0;}
