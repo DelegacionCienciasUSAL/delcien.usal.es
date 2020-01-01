@@ -1,6 +1,10 @@
 Django==2.2.8
 psycopg2-binary==2.8.4
 
+# For markdown
+django-markdownx
+Markdown
+
 # For tests
 pytest==5.0.1
 pytest-cov==2.7.1
