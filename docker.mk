@@ -10,13 +10,38 @@ compose-build:
 compose-run:
 	docker-compose up
 
+compose-stop:
+	docker-compose down
+
 compose-migrate:
 	docker-compose run web $(DJANGO_MANAGE) \
 		makemigrations \
-		--settings=delcien.settings_compose
-	docker-compose run web $(DJANGO_MANAGE) \
+		--settings=delcien.settings_compose && \
+		$(DJANGO_MANAGE) \
 		migrate \
 		--settings=delcien.settings_compose
+
+	docker-compose run web $(DJANGO_MANAGE) \
+		makemigrations delcien \
+		--settings=delcien.settings_compose && \
+		$(DJANGO_MANAGE) \
+		migrate delcien \
+		--settings=delcien.settings_compose
+
+	docker-compose run web $(DJANGO_MANAGE) \
+		makemigrations inicio \
+		--settings=delcien.settings_compose && \
+		$(DJANGO_MANAGE) \
+		migrate inicio \
+		--settings=delcien.settings_compose
+
+compose-prune:
+	docker-compose down
+
+	rm -f .src/apps/*/migrations/0*.py
+
+compose-bash:
+	docker-compose run web bash
 
 compose-createsuperuser:
 	docker-compose run web $(DJANGO_MANAGE) \
