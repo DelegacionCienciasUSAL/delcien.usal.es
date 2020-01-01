@@ -18,15 +18,84 @@ header{background-color: white;}
 #banner div#delegacion h1{  font-size: 1.5em;}
 #banner div#delegacion h2{  font-size: 1.4em;}
 
-#main-nav-container, #main-nav{
+#main-nav-container, #main-nav, #info-pagina{
   width: 100%;
   background-color: var(--rojo-toro);
   color: white;
 } 
 
+#info-pagina{
+  background-color: var(--gris-plata);
+  padding: 0 1em;
+}
+
+#info-pagina p{
+  margin: 0;
+  padding-bottom: .4em;
+}
+
+#call-to-action .flex{
+  margin: 0;
+  width: 100%;
+}
+
+#call-to-action{
+  display: block;
+}
+
+#call-to-action form{
+  padding-top: 1em;
+}
+
+#call-to-action > form > div > *{
+  width: initial;
+  padding: 0;
+}
+
+#call-to-action > form input,
+#call-to-action > form span{
+  margin: 0 .6em 0 0;
+}
+
+#call-to-action > form input{
+  flex: 1 1 auto;
+}
+
+#call-to-action input,
+#call-to-action textarea{
+  color: var(--gris-plata);
+}
+
+#call-to-action > form textarea{
+  width: 100%;
+  margin-bottom: .5em;
+}
+
+#bottom-links{
+  text-align: center;
+}
+
+#bottom-links ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+#bottom-links a{
+  color: white;
+  text-decoration: underline;
+}
+
 #main-nav a:hover{
   border-bottom: solid var(--rojo-toro);
   background-color: rgba(255,255,255, 0.2);
+}
+
+#call-to-action input[type="submit"]{
+  background-color: var(--rojo-toro);
+  color: white;
+  margin: 0;
 }
 
 #main-nav a{
@@ -147,7 +216,11 @@ nav.social .fi-padding{
  *  1024px <= Ancho < 1170px
  */
 @media screen and (min-width: 1024px){
-  #banner, #main-nav, main{max-width: 1000px; margin: 0 auto;}
+  #banner, 
+  #main-nav, 
+  main, 
+  #call-to-action,
+  #bottom-links {max-width: 1000px; margin: 0 auto;}
   #main-nav a{
     border: none;
     padding-left: .3em;

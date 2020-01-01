@@ -49,30 +49,38 @@
 {% block footer %}
 	<section id="info-pagina">
 		<span id="call-to-action">
-			<p>¡No te pierdas la oportunidad de participar en tu facultad!</p>
-			<form method="get" class="input-group" action={% url 'colaborar' %} >
-				<span class="input-group-label">Mantenme informado</span>
-				<input class="input-group-field" name="correo-colaborador" type="email" placeholder="ejemplo@correo.xx">
-				<input type="hidden" name="prev_url" value="{{ request.path }}">
-				<div class="input-group-button">
-					<input type="submit" class="button" name="solicitar-avisos" value="Avísame">
+			<form method="get" action={% url 'colaborar' %} >
+				<p>¡No te pierdas la oportunidad de participar en tu facultad!</p>
+				<div class="flex three">
+					<span class="">Mantenme informado</span>
+					<input class="" name="correo-colaborador" type="email" placeholder="ejemplo@correo.xx">
+					<input type="hidden" name="prev_url" value="{{ request.path }}">
+					<div class="">
+						<input type="submit" name="solicitar-avisos" value="Avísame">
+					</div>
 				</div>
 			</form>
             <form method="get"  action={% url 'sugerir' %}>
                 <p>Si tienes cualquier idea sobre cómo podríamos mejorar y no quieres 
                 esperar a decírnoslo, cuéntanoslo por aqui</p>
-                <textarea name="sugerencia" placeholder="Sugerencia ..."></textarea>
-				<input type="hidden" name="prev_url" value="{{ request.path }}">
-                <div id="enviar-sugerencia" class="input-group-button">
-                    <input type="submit" class="button" name="solicitar-avisos" value="Enviar">
+                <div>
+	                <textarea name="sugerencia" placeholder="Sugerencia ..."></textarea>
+					<input type="hidden" name="prev_url" value="{{ request.path }}">
+	                <div id="enviar-sugerencia" class="input-group-button">
+	                    <input type="submit" class="button" name="solicitar-avisos" value="Enviar">
+	                </div>
                 </div>
             </form>
 		</span>
-		<div class="menu-centered">
-            <ul class="vertical medium-horizontal menu">
-                <li><a href="/legal">Política de Privacidad</a></li>
-                <li><a href="/soporte">Soporte</a></li>
-                <li><a href="/admin">Login Administrador</a></li>
+		<div id="bottom-links">
+			<hr/>
+            <ul class="flex three center">
+                <li class="full third-1000">
+                	<a href="/legal">Política de Privacidad</a></li>
+                <li class="full third-1000">
+                	<a href="/soporte">Soporte</a></li>
+                <li class="full third-1000">
+                	<a href="/admin">Login Administrador</a></li>
             </ul>
             <p>2017 Delegación de ciencias</p>
         </div>
