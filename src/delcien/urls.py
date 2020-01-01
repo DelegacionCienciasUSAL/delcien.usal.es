@@ -14,9 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import include, url
+from django.conf import settings
 from django.contrib import admin
-from inicio.views import main as index
+from django.views.static import serve
 from delcien.views import soporte, legal, get_colab, get_sug
+from inicio.views import main as index
 
 urlpatterns = [
 	url(r'^colaborar/$', get_colab, name='colaborar'),
@@ -25,6 +27,13 @@ urlpatterns = [
     url(r'^legal/$', legal),
     url(r'^admin/', admin.site.urls),
     url(r'^inicio/', include( 'inicio.urls')),
-    url('admin/', admin.site.urls),
+    url(r'^markdownx/', include('markdownx.urls')),
     url(r'^$', index),
 ]
+
+if settings.DEBUG == True:
+    urlpatterns += [
+        url(r'^uploads/(?P<path>.*)$', serve, {
+            'document_root': settings.MEDIA_ROOT,
+        }),
+    ]

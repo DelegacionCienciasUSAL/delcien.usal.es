@@ -1,5 +1,5 @@
 {% extends "delcien/main.html" %}
-
+{% load md %}
 {% comment %}
 <!--{% block title %}
 {% endblock %}
@@ -32,10 +32,12 @@
                 estudiante y sus intereses; además de organizar eventos en la
                 facultad y colaborar en el día a día en ésta.
             </p>
+            <img src="{{ contenido.fotoFacultad.url }}">
+            <p>{{ contenido.bienvenida | markdown | safe }}</p>
         </div>
         <div class="contenedor" id="destacado">
             <p>
-                {{ Destacado }}
+                {{ destacado }}
             </p>
         </div>
 		<section class="tipo-contenedor">
