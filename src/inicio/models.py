@@ -1,24 +1,35 @@
 from django.db import models
 import markdownx
 
-class Destacado( models.Model):
-	fecha = models.DateField( blank=True, null=True, verbose_name='Fecha')
-	contenido = models.CharField( max_length=150)
+class Alerta( models.Model):
+    contenido = models.CharField( max_length=150)
 
-	def __str_( self):
-		return(f"{fecha} {contenido}")
+    class Meta:
+        verbose_name = 'Alerta'
+        verbose_name_plural = 'Alertas'
+
+    def __str_( self):
+        return(f"Alerta")
 
 class PaginaInicio( models.Model):
-    fotoFacultad = models.ImageField(upload_to='images/')
+    fotoFacultad = models.ImageField(blank=True, null=True, upload_to='images/')
     bienvenida = markdownx.models.MarkdownxField()
     mantente_al_dia = markdownx.models.MarkdownxField()
 
+    class Meta:
+        verbose_name = 'Contenido de la página de inicio'
+        verbose_name_plural = 'Contenido de la página de inicio'
+
     def __str_( self):
-        return(f"{fecha} {contenido}")
+        return(f"Página de inicio")
 
 class Seccion( models.Model):
-    titulo = models.CharField( max_length=150)
-    mantente_al_dia = markdownx.models.MarkdownxField()
+    titulo = models.CharField(max_length=150)
+    contenido = markdownx.models.MarkdownxField()
+
+    class Meta:
+        verbose_name = 'Secciones extra'
+        verbose_name_plural = 'Secciones extra'
 
     def __str_( self):
-        return(f"{fecha} {contenido}")
+        return(self.titulo)

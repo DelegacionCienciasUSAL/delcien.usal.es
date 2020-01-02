@@ -14,26 +14,23 @@ compose-stop:
 	docker-compose down
 
 compose-migrate:
-	docker-compose run web $(DJANGO_MANAGE) \
-		makemigrations \
+	docker-compose run web bash -c \
+		"$(DJANGO_MANAGE) makemigrations \
 		--settings=delcien.settings_compose && \
-		$(DJANGO_MANAGE) \
-		migrate \
-		--settings=delcien.settings_compose
+		$(DJANGO_MANAGE) migrate \
+		--settings=delcien.settings_compose"
 
-	docker-compose run web $(DJANGO_MANAGE) \
-		makemigrations delcien \
+	docker-compose run web bash -c \
+		"$(DJANGO_MANAGE) makemigrations delcien \
 		--settings=delcien.settings_compose && \
-		$(DJANGO_MANAGE) \
-		migrate delcien \
-		--settings=delcien.settings_compose
+		$(DJANGO_MANAGE) migrate delcien \
+		--settings=delcien.settings_compose"
 
-	docker-compose run web $(DJANGO_MANAGE) \
-		makemigrations inicio \
+	docker-compose run web bash -c \
+		"$(DJANGO_MANAGE) makemigrations inicio \
 		--settings=delcien.settings_compose && \
-		$(DJANGO_MANAGE) \
-		migrate inicio \
-		--settings=delcien.settings_compose
+		$(DJANGO_MANAGE) migrate inicio \
+		--settings=delcien.settings_compose"
 
 compose-prune:
 	docker-compose down

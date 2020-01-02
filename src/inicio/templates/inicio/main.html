@@ -32,14 +32,22 @@
                 estudiante y sus intereses; además de organizar eventos en la
                 facultad y colaborar en el día a día en ésta.
             </p>
-            <img src="{{ contenido.fotoFacultad.url }}">
+            {% if contenido.fotoFacultad %}
+                <img src="{{ contenido.fotoFacultad.url }}">
+            {% endif %}
             <p>{{ contenido.bienvenida | markdown | safe }}</p>
         </div>
         <div class="contenedor" id="destacado">
             <p>
-                {{ destacado }}
+                {{ alertas }}
             </p>
         </div>
+        {% for seccion in sections %}
+        <section class="contenedor">
+            <h1 class="tituloSeccion">{{ seccion.titulo }}</h1>
+            {{ seccion.contenido }}
+        </section>
+        {% endfor %}
 		<section class="tipo-contenedor">
         	<h1 id="titulo-seccion">Actividades en la Facultad</h1>
         	<div class="contenedor-imagen-texto">
