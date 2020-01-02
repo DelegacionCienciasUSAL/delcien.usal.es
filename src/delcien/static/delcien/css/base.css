@@ -171,6 +171,20 @@ nav.social .fi-padding{
   margin-left: 4px;
 }
 
+/* Containers */
+section.section-container .content{
+  padding: 0 1em;
+}
+
+section.section-container .section-title{
+  font-family: var(--font-title); 
+  color: var(--rojo-toro);
+  border-bottom: solid;
+  padding-bottom: 0;
+  padding-left: .6em;
+  margin-bottom: .6em;
+}
+
 /*  Dispositivo : Móvil vertical  ***************************************//*
  *  320px <= Ancho < 568px
  */
@@ -236,6 +250,8 @@ nav.social .fi-padding{
   #main-nav-current{display: none;}
   #banner div#delegacion h1{  font-size: 2.3em;}
   #banner div#delegacion h2{  font-size: 2.0em;}
+  section.section-container .content{ padding: 0;}
+  section.section-container .section-title{ padding-left: 0;}
 }
 
 /*  Dispositivo : Escritorio de ordenador  ******************************//*

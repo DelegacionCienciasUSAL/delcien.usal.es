@@ -33,6 +33,11 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'markdownx',
     'inicio',
+    'quienes_somos',
+    'actualidad',
+    'documentacion',
+    'estructura_interna',
+    'contacto',
 ]
 
 MIDDLEWARE = [

@@ -32,6 +32,11 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^inicio/', include( 'inicio.urls')),
     url(r'^markdownx/', include('markdownx.urls')),
+    url(r'^quienes-somos/', include( 'quienes_somos.urls')),
+    url(r'^estructura-interna/', include( 'estructura_interna.urls')),
+    url(r'^actualidad/', include( 'actualidad.urls')),
+    url(r'^documentacion/', include( 'documentacion.urls')),
+    url(r'^contacto/', include( 'contacto.urls')),
     url(r'^$', index),
 ]
 
