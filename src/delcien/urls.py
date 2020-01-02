@@ -20,6 +20,10 @@ from django.views.static import serve
 from delcien.views import soporte, legal, get_colab, get_sug
 from inicio.views import main as index
 
+admin.site.site_header = "Portal Admin - Delegación"
+admin.site.site_title = "Portal Admin de la Delegación"
+admin.site.index_title = "Portal Administrativo de la Página Web de la Delegación"
+
 urlpatterns = [
 	url(r'^colaborar/$', get_colab, name='colaborar'),
     url(r'^sugerir/$', get_sug, name='sugerir'),

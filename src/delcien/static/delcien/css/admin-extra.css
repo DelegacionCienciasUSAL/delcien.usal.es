@@ -1,0 +1,153 @@
+@font-face {
+    font-family:"Universitas Studii Salamantini";
+    src:
+        url("/static/delcien/assets/imagen-corporativa/charsets/universitas-studii-salmantini/Universitas_Studii_Salamantini.eot?") format("eot"),
+        url("/static/delcien/assets/imagen-corporativa/charsets/universitas-studii-salmantini/Universitas_Studii_Salamantini.woff") format("woff"),
+        url("/static/delcien/assets/imagen-corporativa/charsets/universitas-studii-salmantini/Universitas_Studii_Salamantini.ttf") format("truetype"),
+        url("/static/delcien/assets/imagen-corporativa/charsets/universitas-studii-salmantini/Universitas_Studii_Salamantini.svg#UniversitasStudiiSalamantini") format("svg");
+    font-weight:normal;
+    font-style:normal;
+}
+
+body{
+    --rojo-toro-light: rgba(210, 32, 32, 0.5);
+    --rojo-toro: #D22020;
+    --gris-aluminio: #4D4D4D;
+    --gris-plata: #666666;
+    --font-universitas: "Universitas Studii Salamantini", "EB Garamond", serif;
+    --font-title: "EB Garamond", serif;
+    --font-text: "Trebuchet MS", "Liberation Sans", "Alegreya Sans Regular", "Tahoma", sans-serif;
+    --font-link: "Raleway" , "Abel", "Josefin Slab", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: var(--font-title);
+}
+
+#content{
+	margin: 0 auto;
+	max-width: 1000px;
+}
+
+body.dashboard #content{
+	padding-right: 260px;
+}
+
+#branding #site-name a{
+	font-size: 1.3em;
+	color: white;
+	font-family: var(--font-universitas);
+}
+
+#user-tools {
+    font-size: 1em;
+}
+
+.module caption, caption{
+	background-color: #eee;
+}
+
+#content .module caption a, 
+#content caption a{
+	color: var(--rojo-toro);
+}
+
+#content a{
+	color: var(--gris-plata);
+}
+
+#content .object-tools a:link, 
+#content .object-tools a:visited{
+	color: white;
+}
+
+.button:active, 
+input[type="submit"]:active, 
+input[type="button"]:active, 
+.button:focus, 
+input[type="submit"]:focus, 
+input[type="button"]:focus, 
+.button:hover, 
+input[type="submit"]:hover, 
+input[type="button"]:hover {
+	background-color: var(--rojo-toro);	
+}
+
+.button, 
+input[type="submit"], 
+input[type="button"], 
+.submit-row input, 
+a.button,
+.object-tools a:focus, 
+.object-tools a:hover{
+	background-color: var(--rojo-toro-light);
+}
+
+div.breadcrumbs {
+    color: var(--rojo-toro-light);
+    padding: 10px 40px;
+    border: none;
+    font-size: 14px;
+    background-color: #eee;
+    text-align: left;
+}
+
+div.breadcrumbs a {
+    color: var(--rojo-toro);
+}
+
+div.breadcrumbs a:hover {
+    color: var(--rojo-toro);
+    text-decoration: underline;
+}
+
+#header{
+	padding: 0 40px 0 0;
+	background-color: var(--rojo-toro-light);
+}
+
+#branding {
+	padding: 10px 0 10px 2em;
+    float: left;
+    width: 50%;
+}
+
+#header a:link, #header a:visited {
+    color: var(--gris-aluminio);
+    font-weight: normal;
+}
+
+#header {
+    color: var(--rojo-toro);
+}
+
+#user-tools {
+    font-weight: bold;
+}
+
+#branding h1 {
+    font-weight: initial;
+}
+
+#content .markdownx {
+    display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#id_contenido {
+	width: 40%;
+}
+
+#content .markdownx-preview {
+	width: 55%;
+	padding: 5px 6px;
+	background-color: #f8f8f8;
+	margin-left: 5px;
+	overflow-y: visible;
+}
+
+#content .markdownx-preview *:first-child{
+	padding-top: 0;
+	margin-top: 0;
+}
