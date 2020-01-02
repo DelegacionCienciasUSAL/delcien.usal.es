@@ -1,3 +1,4 @@
+SHELL := bash
 include *.mk
 
 .PHONY: test
