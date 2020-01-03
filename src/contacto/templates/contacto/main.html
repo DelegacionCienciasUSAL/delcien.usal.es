@@ -29,11 +29,11 @@
     	<div class="flex three-1000">
 			  <p class="full two-third-1000">
 			  	<b>Teléfono:</b><br>
-			  	677 578 739 <i>Extensión 1551</i><br>
+			  	{{ delegacion.telefono }}<br>
 			  	<b>Dirección física:</b><br>
-			  	Plaza de la merced, s/n. 37008 Salamanca. despacho F1001 <br>
+			  	{{ delegacion.direccion }}<br>
 			  	<b>Correo electrónico:</b><br>
-			  	delg.fc@usal.es
+			  	{{ delegacion.email }}
 			  </p>
 			<table class="primary full third-1000">
 			  <thead>
@@ -42,22 +42,12 @@
 			    </tr>
 			  </thead>
 			  <tbody>
+			  	{% for profile in social %}
 			    <tr>
-			      <td>Francisco</td>
-			      <td>Valencia, Spain</td>
+			      <td>{{ profile.red }}</td>
+			      <td>{{ profile.perfil }}</td>
 			    </tr>
-			    <tr>
-			      <td>Eve</td>
-			      <td>San Francisco, USA</td>
-			    </tr>
-			    <tr>
-			      <td>Martin</td>
-			      <td>New York, USA</td>
-			    </tr>
-			    <tr>
-			      <td>Sarah</td>
-			      <td>London, UK</td>
-			    </tr>
+			    {% endfor %}
 			  </tbody>
 			</table>
     	</div>
