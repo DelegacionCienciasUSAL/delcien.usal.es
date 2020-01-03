@@ -19,6 +19,5 @@ from . import views
 urlpatterns = [
     url(r'^$', views.main),
     url(r'^duda/$', views.get_duda, name='contactoDuda'),
-    url(r'^colaborar/$', views.get_colab, name='contactoColaboracion'),
     #url(r'^/$', include( 'delcien.inicio.urls')),
 ]

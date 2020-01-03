@@ -58,14 +58,14 @@
     <div class="content">
 		<div class="flex two-1000">
 			<div>
-				<h3>Envíanos directamente tu duda</h3>
-				<p>No hace falta que abras el correo, escribe aquí
-					tus dudas y te responderemos lo antes posible. <br>
+				<h3>¿Tienes una duda?¿Organizas una actividad?</h3>
+				<p>No hace falta que abras el correo, escribelo aquí
+					y te responderemos lo antes posible. <br>
 					<i>Tus datos únicamente quedarán registrados en
 					el correo electrónico, y con el único fin de
 					poder responder.</i></p>
 			</div>
-			<form class="full half-1000" method="get" action={% url 'contactoDuda' %}>
+			<form class="full half-1000" method="GET" action={% url 'contactoDuda' %}>
 				<div class="flex two-1000">
 					<span class="full half-1000">
 						<label>Nombre</label>
@@ -91,57 +91,6 @@
 				<div class="contenido-texto">
 					<label id="descripcion">Explícanos tu duda</label>
 					  	<textarea  class="full" placeholder="..." name="duda"></textarea>
-				</div>
-				<input type="hidden" name="prev_url" value="{{ request.path }}"></input>
-				<input type="submit" class="button expanded"></input>
-			</form>
-		</div>
-		<br/>
-		<hr/>
-		<br/>
-		<div class="flex two-1000">
-			<div>
-				<h3>¿Organizas algo en la facultad?</h3>
-				<p>Aquí puedes explicarnos en qué consiste y mandarnos una 
-					imagen representativa. Nosotros nos encargaremos de darle
-					difusión.<br>
-					<i>Tus datos y la descripción e imagen de la propuesta únicamente se
-					usarán con el fin de divulgar y mostrarla.</i></p>
-			</div>
-			<form class="full half-1000" method="post" action={% url 'contactoColaboracion' %}>
-				<div class="flex two-1000">
-					<span class="full half-1000">
-						<label>Nombre</label>
-				    	<input type="text" name="nombre" placeholder="Nombre">
-					</span>
-					<span class="full half-1000">
-				    	<label>Correo electrónico</label>
-				    	<input type="email" name="correo" placeholder="Nombre">
-					</span>
-				</div>
-				<span>
-				    <label>Ámbito de la duda</label>
-				  	<select name="ambito">
-				    	<option value="Facultad de Ciencias">Facultad de Ciencias</option>
-				    	<option value="Grado en Ingeniería Informática">Grado en Ingeniería Informática</option>
-				    	<option value="Grado en Ingeniería Química">Grado en Ingeniería Química</option>
-				    	<option value="Grado en Física">Grado en Física</option>
-				    	<option value="Grado en Estadística">Grado en Estadística</option>
-				    	<option value="Grado en Matemáticas">Grado en Matemáticas</option>
-				    	<option value="Grado en Geología">Grado en Geología</option>
-				  	</select>
-				</span>
-				<div class="contenido-texto">
-					<label id="descripcion">Cuéntanos de qué trata</label>
-					  	<textarea  class="full" placeholder="..." name="desc"></textarea>
-				</div>
-				<div class="imageInput flex">
-					<p>¿Quieres que publiquemos tu cartel?</p>
-					<div class="dropImageContainer">
-						<label class="dropimage miniprofile">
-							<input name="image" title="Drop image or click me" type="file">
-						</label>
-					</div>
 				</div>
 				<input type="hidden" name="prev_url" value="{{ request.path }}"></input>
 				<input type="submit" class="button expanded"></input>
