@@ -45,7 +45,7 @@
         {% for seccion in sections %}
         <section class="contenedor">
             <h1 class="tituloSeccion">{{ seccion.titulo }}</h1>
-            {{ seccion.contenido }}
+            {{ seccion.contenido | markdown | safe }}
         </section>
         {% endfor %}
 		<section class="tipo-contenedor">
