@@ -1,10 +1,5 @@
 from django.db import models
 
-
-
-
-
-
 class RedSocial(models.Model):
     SOCIAL_ICON_CHOICES = (
         ('fi-xnsuxl-twitter', 'Twitter'),
