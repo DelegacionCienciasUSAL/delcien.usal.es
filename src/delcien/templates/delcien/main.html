@@ -7,12 +7,9 @@
 {% block header %}
 	<nav class="social">
 		<ul>
-			<li><a href=""><i class="fi-xnsuxl-twitter"></i></a></li>
-			<li><a href=""><i class="fi-xnsuxl-instagram"></i></a></li>
-			<li><a href=""><i class="fi-xnsuxl-facebook-circle"></i></a></li>
-			<li><a href=""><i class="fi-xnsuxl-github"></i></a></li>
-			<li><a href=""><i class="fi-xnsuxl-twitch-glitch"></i></a></li>
-			<li><a href=""><i class="fi-xnsuxl-youtube"></i></a></li>
+			{% for profile in social %}
+			<li><a href="{{ profile.perfil }}"><i class="{{ profile.icono }}"></i></a></li>
+			{% endfor %}
 		</ul>
 	</nav>
 	<div id="banner">
@@ -87,12 +84,9 @@
 	</section>
 	<nav class="social">
 		<ul>
-			<li><a href=""><i class="fi-xnsuxl-twitter"></i></a></li>
-			<li><a href=""><i class="fi-xnsuxl-instagram"></i></a></li>
-			<li><a href=""><i class="fi-xnsuxl-facebook-circle"></i></a></li>
-			<li><a href=""><i class="fi-xnsuxl-github"></i></a></li>
-			<li><a href=""><i class="fi-xnsuxl-twitch-glitch"></i></a></li>
-			<li><a href=""><i class="fi-xnsuxl-youtube"></i></a></li>
+			{% for profile in social %}
+			<li><a href="{{ profile.perfil }}"><i class="{{ profile.icono }}"></i></a></li>
+			{% endfor %}
 		</ul>
 	</nav>
 {% endblock %}
