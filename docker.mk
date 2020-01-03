@@ -20,17 +20,12 @@ compose-migrate:
 		$(DJANGO_MANAGE) migrate \
 		--settings=delcien.settings_compose"
 
-	docker-compose run web bash -c \
-		"$(DJANGO_MANAGE) makemigrations delcien \
+	for app in delcien inicio quienes_somos estructura_interna documentacion actualidad ; do \
+		docker-compose run web bash -c "$(DJANGO_MANAGE) makemigrations $$app \
 		--settings=delcien.settings_compose && \
-		$(DJANGO_MANAGE) migrate delcien \
-		--settings=delcien.settings_compose"
-
-	docker-compose run web bash -c \
-		"$(DJANGO_MANAGE) makemigrations inicio \
-		--settings=delcien.settings_compose && \
-		$(DJANGO_MANAGE) migrate inicio \
-		--settings=delcien.settings_compose"
+		$(DJANGO_MANAGE) migrate $$app \
+		--settings=delcien.settings_compose" ; \
+	done
 
 compose-prune:
 	docker-compose down
