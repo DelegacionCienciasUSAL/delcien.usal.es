@@ -10,10 +10,8 @@ def main( request):
 	RecursosUniversidad = Recurso.objects.filter(categoria='UN')
 
 	return( render( request, 'documentacion/main.html', {
-		'estudiante': RecursosEstudiante, 
-		'representante': RecursosRepresentacion, 
-		'delegacion': RecursosDelegacion, 
-		'universidad': RecursosUniversidad, 
+		'doc_estudiante': RecursosEstudiante, 
+		'doc_representante': RecursosRepresentacion, 
+		'doc_delegacion': RecursosDelegacion, 
+		'doc_universidad': RecursosUniversidad, 
                 'Titulo' : 'Documentación'}))
-
-

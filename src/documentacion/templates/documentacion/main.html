@@ -47,7 +47,7 @@
     	<h1 id="titulo-seccion">Documentación de la delegación</h1>
     	<div class="contenedor-dos-columnas">
     		{% if delegacion %}
-    			{% for recurso in delegacion %}
+    			{% for recurso in doc_delegacion %}
     				<div class="contenido-fichero">
 		        		<div>
 		        			{% if recurso.validez == "CN" %}
@@ -92,7 +92,7 @@
     	<h1 id="titulo-seccion">Documentación para el estudiante</h1>
     	<div class="contenedor-dos-columnas">
     		{% if estudiante %}
-    			{% for recurso in estudiante %}
+    			{% for recurso in doc_estudiante %}
     				<div class="contenido-fichero">
 		        		<div>
 		        			{% if recurso.validez == "CN" %}
@@ -137,7 +137,7 @@
     	<h1 id="titulo-seccion">Documentación para representantes</h1>
     	<div class="contenedor-dos-columnas">
     		{% if representante %}
-    			{% for recurso in representante %}
+    			{% for recurso in doc_representante %}
     				<div class="contenido-fichero">
 		        		<div>
 		        			{% if recurso.validez == "CN" %}
@@ -182,7 +182,7 @@
     	<h1 id="titulo-seccion">Documentación de la Universidad</h1>
     	<div class="contenedor-dos-columnas">
     		{% if universidad %}
-    			{% for recurso in universidad %}
+    			{% for recurso in doc_universidad %}
     				<div class="contenido-fichero">
 		        		<div>
 		        			{% if recurso.validez == "CN" %}
