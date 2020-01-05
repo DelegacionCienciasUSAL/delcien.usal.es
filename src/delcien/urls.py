@@ -33,6 +33,7 @@ URL_TO_NAME = {
     'actualidad': 'Actualidad',
     'documentacion': 'Documentacion',
     'contacto': 'Contacto',
+    'admin': '',
 }
 
 urlpatterns = [
@@ -40,7 +41,7 @@ urlpatterns = [
     url(r'^sugerir/$', get_sug, name='sugerir'),
     url(r'^soporte/$', soporte),
     url(r'^legal/$', legal),
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls, name='admin'),
     url(r'^inicio/', include( 'inicio.urls')),
     url(r'^markdownx/', include('markdownx.urls')),
     url(r'^quienes-somos/', include( 'quienes_somos.urls')),
