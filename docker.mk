@@ -7,6 +7,9 @@ docker-build:
 compose-build:
 	docker-compose build
 
+compose-rebuild: compose-stop compose-build compose-migrate compose-createDummyAdmin
+	echo 'Rebuild done'
+
 compose-run:
 	docker-compose up
 
@@ -44,4 +47,4 @@ compose-createDummyAdmin:
 	docker-compose run web bash -c "echo \"from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')\" \
 	 | $(DJANGO_MANAGE) shell --settings=delcien.settings_compose"
 
-.PHONY: docker-build compose-build compose-run compose-migrate compose-createsuperuser
+.PHONY: docker-build compose-build compose-rebuild compose-run compose-stop compose-migrate compose-prune compose-bash compose-createsuperuser compose-createDummyAdmin
