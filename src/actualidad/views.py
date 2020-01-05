@@ -33,7 +33,6 @@ def main( request, pagina=1):
 def details(request, id):
 	try:
 		noticia = Noticia.objects.get(pk=id)
-		print('id ->', noticia)
 		context = {
 			'noticia': noticia,
 		}
