@@ -24,6 +24,17 @@ admin.site.site_header = "Portal Admin - Delegación"
 admin.site.site_title = "Portal Admin de la Delegación"
 admin.site.index_title = "Portal Administrativo de la Página Web de la Delegación"
 
+URL_TO_NAME = {
+    'soporte': 'Soporte',
+    'legal': 'Política de Privacidad',
+    'inicio': 'Inicio',
+    'quienes-somos': '¿Quiénes somos?',
+    'estructura-interna': 'Estructura interna de la Facultad',
+    'actualidad': 'Actualidad',
+    'documentacion': 'Documentacion',
+    'contacto': 'Contacto',
+}
+
 urlpatterns = [
 	url(r'^colaborar/$', get_colab, name='colaborar'),
     url(r'^sugerir/$', get_sug, name='sugerir'),
