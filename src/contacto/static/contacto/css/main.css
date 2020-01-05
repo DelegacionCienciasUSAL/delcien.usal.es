@@ -8,3 +8,6 @@ table.primary th{ background-color: var(--rojo-toro); }
 .dropImageContainer{ width: 5em; height: 5em; }
 input[type="submit"]{ background-color: var(--rojo-toro); }
 input[type="submit"]:hover{ background-color: var(--rojo-toro-light); color: var(--rojo-toro); }
+.flex > *:first-child{
+	padding-left: 0;
+}
