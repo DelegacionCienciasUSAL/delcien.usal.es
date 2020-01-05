@@ -134,6 +134,11 @@ header{background-color: white;}
 
 #main-nav-links.display{display: flex;}
 
+.flex{
+  margin: 0;
+  width: 100%;
+}
+
 img{
   max-width: calc(100vw);
   width: 100%;
@@ -161,6 +166,10 @@ nav.social a{
   color: var(--gris-aluminio);
   width: 30px;
   height: 30px;
+}
+
+#main-nav a.active {
+    display: none;
 }
 
 nav.social a:hover{
@@ -241,8 +250,15 @@ section.section-container .section-title{
     padding-left: .3em;
     width: initial;
     text-align: center;
+    margin-bottom: 3px;
   }
-  #main-nav a:hover{border-bottom: none;}
+  #main-nav a.active {
+    display: initial;
+  }
+  #main-nav a.active{
+    border-bottom: solid;
+  }
+  
   #main-nav-links{
     display: flex;
     flex-direction: row;

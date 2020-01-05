@@ -25,14 +25,38 @@
 	</div>
 	<nav id="main-nav-container">
 		<div id="main-nav">
-			<button id="main-nav-current" class="flex two"><span>{{ titulo }}</span><span>&#8801;</span></button>
+			<button id="main-nav-current" class="flex two"><span>{{ app_name }}</span><span>&#8801;</span></button>
 			<div id="main-nav-links" class="flex center">
-				<a href="/inicio">Inicio</a>
-				<a href="/quienes-somos">¿Quiénes somos?</a>
-				<a href="/estructura-interna">Estructura interna de la Facultad</a>
-				<a href="/actualidad">Actualidad</a>
-				<a href="/documentacion">Documentación</a>
-				<a href="/contacto">Contacto</a>
+				<a 
+					href={% url 'inicio' %} 
+					{% if base_path == 'inicio' %}class=" active" inactive{% endif %}>
+					Inicio
+				</a>
+				<a 
+					href={% url 'quienes-somos' %} 
+					{% if base_path == 'quienes-somos' %}class=" active" inactive{% endif %}>
+					¿Quiénes somos?
+				</a>
+				<a 
+					href={% url 'estructura-interna' %} 
+					{% if base_path == 'estructura-interna' %}class=" active" inactive{% endif %}>
+					Estructura interna de la Facultad
+				</a>
+				<a 
+					href={% url 'actualidad' %} 
+					{% if base_path == 'actualidad' %}class=" active" inactive{% endif %}>
+					Actualidad
+				</a>
+				<a 
+					href={% url 'documentacion' %} 
+					{% if base_path == 'documentacion' %}class=" active" inactive{% endif %}>
+					Documentación
+				</a>
+				<a 
+					href={% url 'contacto' %} 
+					{% if base_path == 'contacto' %}class=" active" inactive{% endif %}>
+					Contacto
+				</a>
 			</div>
 		</div>
 	</nav>
