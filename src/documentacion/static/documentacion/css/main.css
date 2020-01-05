@@ -1,0 +1,27 @@
+span.date{
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.doc .meta > *{
+  padding: 0;
+  margin: 0;
+}
+
+.doc img{
+  width: 3em;
+  flex: 0 0 auto;
+}
+
+.doc .label{margin-left: 0;}
+.section-container{
+  margin-bottom: 1em;
+}
+
+@media screen and (min-width: 800px){
+  .docContainer{
+    padding: 5px;
+    border: solid 1px var(--rojo-toro-light);
+    border-radius: .8%;
+  }
+}

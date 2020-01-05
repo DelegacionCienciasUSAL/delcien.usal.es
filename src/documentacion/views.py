@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import Http404
 from documentacion.models import Recurso
+from delcien.models import Delegacion
 
 # Create your views here.
 def main( request):
@@ -10,6 +11,7 @@ def main( request):
 	RecursosUniversidad = Recurso.objects.filter(categoria='UN')
 
 	return( render( request, 'documentacion/main.html', {
+		'delegacion': Delegacion.objects.first(),
 		'doc_estudiante': RecursosEstudiante, 
 		'doc_representante': RecursosRepresentacion, 
 		'doc_delegacion': RecursosDelegacion, 

@@ -13,214 +13,214 @@
 {% block footer %}
 {% endblock %} -->
 {% endcomment %}
+{% block links %}
+{% load static from staticfiles %}
+<link rel="stylesheet" type="text/css" href={% static "documentacion/css/main.css" %}>{% endblock %}
 
 {% block content %}	
-	<section class="tipo-contenedor">
-        <h1 id="titulo-seccion">Un único lugar para encontrar toda la información</h1>
-        <div class="contenedor-dos-columnas">
-            <div class="contenido-texto">
-                <p>
-                Aquí puedes acceder a todo el contenido que se ha ido generando
-                desde la Delegación, la Facultad u otros sitios, que pueden
-                serte de utilidad.
-                <br>
-                <br>
-                Si hay un recurso que te gustaría tener en la página, o que quisieras compartir, háznoslo saber a través de la sección de <a href="/contacto">contacto</a>. Gracias
-                </p>
-            </div>
-            <div class="contenido-texto">
-                <p>
-                Otros enlaces de interés :
-                </p>
-		        <ul>
-		        	<li><a href="#">Un link</a></li>
-		        	<li><a href="#">Un link</a></li>
-		        	<li><a href="#">Un link</a></li>
-		        	<li><a href="#">Un link</a></li>
-		        	<li><a href="#">Un link</a></li>
-		        	<li><a href="#">Un link</a></li>
-		        </ul>
-		    </div>
-        </div>
-    </section>
-    <section class="tipo-contenedor">
-    	<h1 id="titulo-seccion">Documentación de la delegación</h1>
-    	<div class="contenedor-dos-columnas">
-    		{% if delegacion %}
-    			{% for recurso in doc_delegacion %}
-    				<div class="contenido-fichero">
-		        		<div>
-		        			{% if recurso.validez == "CN" %}
-		        				<span class="secondary label">En construcción</span>
-							{% elif recurso.validez == "VA" %}
-								<span class="success label">Disponible</span>
-							{% elif recurso.validez == "IN" %}
-								<span class="alert label">Inaccesible</span>
-							{% else %}		        			
-								<span class="warning label">Desactualizado</span>
-		        			{% endif %}
-							( {{ recurso.fecha_edicion }} )<a href="{{ recurso.fichero }}"><button type="button" class="button tiny">Descargar</button></a>
-		        		</div>
-						<div>
-							<span class="icono-fichero">
-								{% if recurso.tipo_fichero == "PF" %}
-									<img src="/static/delcien/assets/svg/pdf.svg" alt="Fichero">
-								{% elif recurso.tipo_fichero  == "PT" %}
-									<img src="/static/delcien/assets/svg/ppt.svg" alt="Fichero">
-								{% elif recurso.tipo_fichero == "WD" %}
-									<img src="/static/delcien/assets/svg/doc.svg" alt="Fichero">
-								{% elif recurso.tipo_fichero == "XL" %}
-									<img src="/static/delcien/assets/svg/doc.svg" alt="Fichero">
-								{% elif recurso.tipo_fichero == "HT" %}
-									<img src="/static/delcien/assets/svg/html.svg" alt="Fichero">
-								{% else %}		        			
-									<img src="/static/delcien/assets/svg/zip.svg" alt="Fichero">
-			        			{% endif %}
-							</span>
-							<p>Fichero : {{ recurso.nombre }}</p><br>
-							<p>Descripción : {{ recurso.descripcion }}</p><br>
-						</div>
-		        	</div>		
+<section class="section-container">
+    <h1 class="section-title">Aprovéchate de nuestros recursos</h1>
+    <div class="content">
+    	<p>
+    		Si tienes algún recurso que quieras compartir, háznoslo llegar a través de nuestro correo electrónico 
+    		(<a href="{{ delegacion.email }}" type="email">{{ delegacion.email }}</a>).
+        </p>
+        {% if doc_delegacion %}
+	        <h3>Documentación de la Delegación</h3>
+	        <p>Actas, reglamento, convocatorias y otros documentos generados por la delegación de estudiantes.</p>
+	        <div class="flex three-700 four-1000 docContainer">
+	        	{% for recurso in doc_delegacion %}
+	        		<div class="full third-800 fourth-1000">
+					    <article class="card doc">
+					    	<header>
+					    		<div class="flex meta">
+									{% if recurso.tipo_fichero == "PF" %}
+										<img src="/static/delcien/assets/svg/pdf.svg" alt="Fichero">
+									{% elif recurso.tipo_fichero  == "PT" %}
+										<img src="/static/delcien/assets/svg/ppt.svg" alt="Fichero">
+									{% elif recurso.tipo_fichero == "WD" %}
+										<img src="/static/delcien/assets/svg/doc.svg" alt="Fichero">
+									{% elif recurso.tipo_fichero == "XL" %}
+										<img src="/static/delcien/assets/svg/doc.svg" alt="Fichero">
+									{% elif recurso.tipo_fichero == "HT" %}
+										<img src="/static/delcien/assets/svg/html.svg" alt="Fichero">
+									{% else %}		        			
+										<img src="/static/delcien/assets/svg/zip.svg" alt="Fichero">
+				        			{% endif %}
+				        			<h4>
+					        			{% if recurso.validez == "CN" %}
+					        				<span class="label warning">En construcción</span>
+										{% elif recurso.validez == "VA" %}
+											<span class="label success">Disponible</span>
+										{% elif recurso.validez == "IN" %}
+											<span class="label error">Inaccesible</span>
+										{% else %}		        			
+											<span class="label error">Desactualizado</span>
+					        			{% endif %}
+					        			<br>
+					    				<span class="date">{{ recurso.fecha_edicion }}</span>
+				        			</h4>	
+					    		</div>
+						    	<h4>{{ recurso.nombre }}</h4>
+					    	</header>
+		        			<p>
+		        				{{ recurso.descripcion }}
+		        			</p>
+					      	<footer>
+								<a href="{{ recurso.fichero }}" target="blank" class="button">Ver recurso</a>
+					    	</footer>
+						</article>
+					</div>
     			{% endfor %}
-    		{% else %}
-    			<h5>No hay documentación disponible</h3>
-    		{% endif %}
-        </div>
-    </section>
-
-    <section class="tipo-contenedor">
-    	<h1 id="titulo-seccion">Documentación para el estudiante</h1>
-    	<div class="contenedor-dos-columnas">
-    		{% if estudiante %}
-    			{% for recurso in doc_estudiante %}
-    				<div class="contenido-fichero">
-		        		<div>
-		        			{% if recurso.validez == "CN" %}
-		        				<span class="secondary label">En construcción</span>
-							{% elif recurso.validez == "VA" %}
-								<span class="success label">Disponible</span>
-							{% elif recurso.validez == "IN" %}
-								<span class="alert label">Inaccesible</span>
-							{% else %}		        			
-								<span class="warning label">Desactualizado</span>
-		        			{% endif %}
-							( {{ recurso.fecha_edicion }} )<a href="{{ recurso.fichero }}"><button type="button" class="button tiny">Descargar</button></a>
-		        		</div>
-						<div>
-							<span class="icono-fichero">
-								{% if recurso.tipo_fichero == "PF" %}
-									<img src="/static/delcien/assets/svg/pdf.svg" alt="Fichero">
-								{% elif recurso.tipo_fichero  == "PT" %}
-									<img src="/static/delcien/assets/svg/ppt.svg" alt="Fichero">
-								{% elif recurso.tipo_fichero == "WD" %}
-									<img src="/static/delcien/assets/svg/doc.svg" alt="Fichero">
-								{% elif recurso.tipo_fichero == "XL" %}
-									<img src="/static/delcien/assets/svg/doc.svg" alt="Fichero">
-								{% elif recurso.tipo_fichero == "HT" %}
-									<img src="/static/delcien/assets/svg/html.svg" alt="Fichero">
-								{% else %}		        			
-									<img src="/static/delcien/assets/svg/zip.svg" alt="Fichero">
-			        			{% endif %}
-							</span>
-							<p>Fichero : {{ recurso.nombre }}</p><br>
-							<p>Descripción : {{ recurso.descripcion }}</p><br>
-						</div>
-		        	</div>		
+	        </div>
+	    {% endif %}
+	    {% if doc_estudiante %}
+	        <h3>Recursos para los Estudiantes</h3>
+	        <p>Plantillas, enlaces de interés, calendarios docentes y otros recursos que te pueden venir bien.</p>
+	        <div class="flex three-700 four-1000 docContainer">
+	        	{% for recurso in doc_estudiante %}
+	        		<div class="full third-800 fourth-1000">
+					    <article class="card doc">
+					    	<header>
+					    		<div class="flex meta">
+									{% if recurso.tipo_fichero == "PF" %}
+										<img src="/static/delcien/assets/svg/pdf.svg" alt="Fichero">
+									{% elif recurso.tipo_fichero  == "PT" %}
+										<img src="/static/delcien/assets/svg/ppt.svg" alt="Fichero">
+									{% elif recurso.tipo_fichero == "WD" %}
+										<img src="/static/delcien/assets/svg/doc.svg" alt="Fichero">
+									{% elif recurso.tipo_fichero == "XL" %}
+										<img src="/static/delcien/assets/svg/doc.svg" alt="Fichero">
+									{% elif recurso.tipo_fichero == "HT" %}
+										<img src="/static/delcien/assets/svg/html.svg" alt="Fichero">
+									{% else %}		        			
+										<img src="/static/delcien/assets/svg/zip.svg" alt="Fichero">
+				        			{% endif %}
+				        			<h4>
+					        			{% if recurso.validez == "CN" %}
+					        				<span class="label warning">En construcción</span>
+										{% elif recurso.validez == "VA" %}
+											<span class="label success">Disponible</span>
+										{% elif recurso.validez == "IN" %}
+											<span class="label error">Inaccesible</span>
+										{% else %}		        			
+											<span class="label error">Desactualizado</span>
+					        			{% endif %}
+					        			<br>
+					    				<span class="date">{{ recurso.fecha_edicion }}</span>
+				        			</h4>	
+					    		</div>
+						    	<h4>{{ recurso.nombre }}</h4>
+					    	</header>
+		        			<p>
+		        				{{ recurso.descripcion }}
+		        			</p>
+					      	<footer>
+								<a href="{{ recurso.fichero }}" target="blank" class="button">Ver recurso</a>
+					    	</footer>
+						</article>
+					</div>
     			{% endfor %}
-    		{% else %}
-    			<h5>No hay documentación disponible</h3>
-    		{% endif %}
-        </div>
-    </section>
-
-    <section class="tipo-contenedor">
-    	<h1 id="titulo-seccion">Documentación para representantes</h1>
-    	<div class="contenedor-dos-columnas">
-    		{% if representante %}
-    			{% for recurso in doc_representante %}
-    				<div class="contenido-fichero">
-		        		<div>
-		        			{% if recurso.validez == "CN" %}
-		        				<span class="secondary label">En construcción</span>
-							{% elif recurso.validez == "VA" %}
-								<span class="success label">Disponible</span>
-							{% elif recurso.validez == "IN" %}
-								<span class="alert label">Inaccesible</span>
-							{% else %}		        			
-								<span class="warning label">Desactualizado</span>
-		        			{% endif %}
-							( {{ recurso.fecha_edicion }} )<a href="{{ recurso.fichero }}"><button type="button" class="button tiny">Descargar</button></a>
-		        		</div>
-						<div>
-							<span class="icono-fichero">
-								{% if recurso.tipo_fichero == "PF" %}
-									<img src="/static/delcien/assets/svg/pdf.svg" alt="Fichero">
-								{% elif recurso.tipo_fichero  == "PT" %}
-									<img src="/static/delcien/assets/svg/ppt.svg" alt="Fichero">
-								{% elif recurso.tipo_fichero == "WD" %}
-									<img src="/static/delcien/assets/svg/doc.svg" alt="Fichero">
-								{% elif recurso.tipo_fichero == "XL" %}
-									<img src="/static/delcien/assets/svg/doc.svg" alt="Fichero">
-								{% elif recurso.tipo_fichero == "HT" %}
-									<img src="/static/delcien/assets/svg/html.svg" alt="Fichero">
-								{% else %}		        			
-									<img src="/static/delcien/assets/svg/zip.svg" alt="Fichero">
-			        			{% endif %}
-							</span>
-							<p>Fichero : {{ recurso.nombre }}</p><br>
-							<p>Descripción : {{ recurso.descripcion }}</p><br>
-						</div>
-		        	</div>		
+	        </div>
+	    {% endif %}
+	    {% if doc_representante %}
+	        <h3>Documentación para los Representantes de Alumnos</h3>
+	        <p>Guías de actuación, calendario de eventos, y plantillas para informes internos.</p>
+	        <div class="flex three-700 four-1000 docContainer">
+	        	{% for recurso in doc_representante %}
+	        		<div class="full third-800 fourth-1000">
+					    <article class="card doc">
+					    	<header>
+					    		<div class="flex meta">
+									{% if recurso.tipo_fichero == "PF" %}
+										<img src="/static/delcien/assets/svg/pdf.svg" alt="Fichero">
+									{% elif recurso.tipo_fichero  == "PT" %}
+										<img src="/static/delcien/assets/svg/ppt.svg" alt="Fichero">
+									{% elif recurso.tipo_fichero == "WD" %}
+										<img src="/static/delcien/assets/svg/doc.svg" alt="Fichero">
+									{% elif recurso.tipo_fichero == "XL" %}
+										<img src="/static/delcien/assets/svg/doc.svg" alt="Fichero">
+									{% elif recurso.tipo_fichero == "HT" %}
+										<img src="/static/delcien/assets/svg/html.svg" alt="Fichero">
+									{% else %}		        			
+										<img src="/static/delcien/assets/svg/zip.svg" alt="Fichero">
+				        			{% endif %}
+				        			<h4>
+					        			{% if recurso.validez == "CN" %}
+					        				<span class="label warning">En construcción</span>
+										{% elif recurso.validez == "VA" %}
+											<span class="label success">Disponible</span>
+										{% elif recurso.validez == "IN" %}
+											<span class="label error">Inaccesible</span>
+										{% else %}		        			
+											<span class="label error">Desactualizado</span>
+					        			{% endif %}
+					        			<br>
+					    				<span class="date">{{ recurso.fecha_edicion }}</span>
+				        			</h4>	
+					    		</div>
+						    	<h4>{{ recurso.nombre }}</h4>
+					    	</header>
+		        			<p>
+		        				{{ recurso.descripcion }}
+		        			</p>
+					      	<footer>
+								<a href="{{ recurso.fichero }}" target="blank" class="button">Ver recurso</a>
+					    	</footer>
+						</article>
+					</div>
     			{% endfor %}
-    		{% else %}
-    			<h5>No hay documentación disponible</h3>
-    		{% endif %}
-        </div>
-    </section>
-
-    <section class="tipo-contenedor">
-    	<h1 id="titulo-seccion">Documentación de la Universidad</h1>
-    	<div class="contenedor-dos-columnas">
-    		{% if universidad %}
-    			{% for recurso in doc_universidad %}
-    				<div class="contenido-fichero">
-		        		<div>
-		        			{% if recurso.validez == "CN" %}
-		        				<span class="secondary label">En construcción</span>
-							{% elif recurso.validez == "VA" %}
-								<span class="success label">Disponible</span>
-							{% elif recurso.validez == "IN" %}
-								<span class="alert label">Inaccesible</span>
-							{% else %}		        			
-								<span class="warning label">Desactualizado</span>
-		        			{% endif %}
-							( {{ recurso.fecha_edicion }} )<a href="{{ recurso.fichero }}"><button type="button" class="button tiny">Descargar</button></a>
-		        		</div>
-						<div>
-							<span class="icono-fichero">
-								{% if recurso.tipo_fichero == "PF" %}
-									<img src="/static/delcien/assets/svg/pdf.svg" alt="Fichero">
-								{% elif recurso.tipo_fichero  == "PT" %}
-									<img src="/static/delcien/assets/svg/ppt.svg" alt="Fichero">
-								{% elif recurso.tipo_fichero == "WD" %}
-									<img src="/static/delcien/assets/svg/doc.svg" alt="Fichero">
-								{% elif recurso.tipo_fichero == "XL" %}
-									<img src="/static/delcien/assets/svg/doc.svg" alt="Fichero">
-								{% elif recurso.tipo_fichero == "HT" %}
-									<img src="/static/delcien/assets/svg/html.svg" alt="Fichero">
-								{% else %}		        			
-									<img src="/static/delcien/assets/svg/zip.svg" alt="Fichero">
-			        			{% endif %}
-							</span>
-							<p>Fichero : {{ recurso.nombre }}</p><br>
-							<p>Descripción : {{ recurso.descripcion }}</p><br>
-						</div>
-		        	</div>		
+	        </div>
+	    {% endif %}
+	    {% if doc_universidad %}
+	        <h3>Recursos de la Universidad</h3>
+	        <p>Enlaces y documentos útiles relacionados con la universidad (estructura interna, uso de los espacios, etcétera).</p>
+	        <div class="flex three-700 four-1000 docContainer">
+	        	{% for recurso in doc_universidad %}
+	        		<div class="full third-800 fourth-1000">
+					    <article class="card doc">
+					    	<header>
+					    		<div class="flex meta">
+									{% if recurso.tipo_fichero == "PF" %}
+										<img src="/static/delcien/assets/svg/pdf.svg" alt="Fichero">
+									{% elif recurso.tipo_fichero  == "PT" %}
+										<img src="/static/delcien/assets/svg/ppt.svg" alt="Fichero">
+									{% elif recurso.tipo_fichero == "WD" %}
+										<img src="/static/delcien/assets/svg/doc.svg" alt="Fichero">
+									{% elif recurso.tipo_fichero == "XL" %}
+										<img src="/static/delcien/assets/svg/doc.svg" alt="Fichero">
+									{% elif recurso.tipo_fichero == "HT" %}
+										<img src="/static/delcien/assets/svg/html.svg" alt="Fichero">
+									{% else %}		        			
+										<img src="/static/delcien/assets/svg/zip.svg" alt="Fichero">
+				        			{% endif %}
+				        			<h4>
+					        			{% if recurso.validez == "CN" %}
+					        				<span class="label warning">En construcción</span>
+										{% elif recurso.validez == "VA" %}
+											<span class="label success">Disponible</span>
+										{% elif recurso.validez == "IN" %}
+											<span class="label error">Inaccesible</span>
+										{% else %}		        			
+											<span class="label error">Desactualizado</span>
+					        			{% endif %}
+					        			<br>
+					    				<span class="date">{{ recurso.fecha_edicion }}</span>
+				        			</h4>	
+					    		</div>
+						    	<h4>{{ recurso.nombre }}</h4>
+					    	</header>
+		        			<p>
+		        				{{ recurso.descripcion }}
+		        			</p>
+					      	<footer>
+								<a href="{{ recurso.fichero }}" target="blank" class="button">Ver recurso</a>
+					    	</footer>
+						</article>
+					</div>
     			{% endfor %}
-    		{% else %}
-    			<h5>No hay documentación disponible</h3>
-    		{% endif %}
-        </div>
-    </section>
-    
+	        </div>
+	    {% endif %}
+	</div>
+</section>    
 {% endblock %}
