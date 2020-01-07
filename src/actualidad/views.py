@@ -1,15 +1,15 @@
 from django.shortcuts import render
 from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from actualidad.models import Noticia
+from actualidad.models import Articulo, Evento
 
 # Create your views here.	
 
 def main( request, pagina=1):
-	noticias_pagina = 12
+	articulos_pagina = 12
 	
 	try:
-		paginas = Paginator( Noticia.objects.all(), noticias_pagina)
+		paginas = Paginator( Articulo.objects.all(), articulos_pagina)
 
 		if( not pagina):
 			pagina = 1
@@ -17,14 +17,14 @@ def main( request, pagina=1):
 			pagina = int( pagina)
 
 		try:
-			noticias = paginas.page(pagina)
+			articulos = paginas.page(pagina)
 		except PageNotAnInteger:
-			noticias = paginas.page(1)
+			articulos = paginas.page(1)
 		except EmptyPage:
-			noticias = paginas.page(paginas.num_pages)
+			articulos = paginas.page(paginas.num_pages)
 
 		return( render( request, 'actualidad/main.html', {
-			'noticias' : noticias,
+			'articulos' : articulos,
 			'pagina': pagina, 
             'Titulo' : 'Actualidad'}))	
 	except Exception as e:
@@ -32,9 +32,9 @@ def main( request, pagina=1):
 
 def details(request, id):
 	try:
-		noticia = Noticia.objects.get(pk=id)
+		articulo = Articulo.objects.get(pk=id)
 		context = {
-			'noticia': noticia,
+			'articulo': articulo,
 		}
 
 		return render(request, 'actualidad/details.html', context)

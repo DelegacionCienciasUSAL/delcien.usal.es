@@ -23,39 +23,42 @@
 	    <h1 class="section-title">Noticias y eventos</h1>
 	    <div class="content">
 	    	<p>
-	    		Mantente informado acerca de los eventos y las noticias más
+	    		Mantente informado acerca de los eventos y las articulos más
 	    		destacables relacionadas con la universidad, y el entorno 
 	    		estudiantil y laboral del ámbito de las ciencias.
 	    	</p>   
 		    <section>
 		    	<div class="flex three-1000">
-		    		{% if noticias %}
-			    		{% for noticia in noticias %}
+		    		{% if articulos %}
+			    		{% for articulo in articulos %}
 			    			<div class="articleContainer full third-1000">
 				    			<article class="card">
 								  <header>
-								    <h3>{{ noticia.titulo }}</h3><br>
+								    <h3>{{ articulo.titulo }}</h3><br>
 								    <p>
-								    	{{ noticia.fecha }}
+								    	{{ articulo.fecha }}
 								    </p>
 								  </header>
+								  <p>
+								  	{{ articulo.descripcion_corta }}
+								  </p>
 								  <footer>
 						    		<a class="button" 
-						    			href="{% url 'actualidad_noticia' noticia.id %}">
-						    			Ver noticia
+						    			href="{% url 'actualidad_articulo' articulo.id %}">
+						    			Ver articulo
 						    		</a>
 								  </footer>
 								</article>
 			    			</div>
 			    		{% endfor %}
 			    	{% else %}
-				    	<h5>No hay noticias disponibles</h5>
+				    	<h5>No hay articulos disponibles</h5>
 			    	{% endif %}
 		    	</div>
 		    </section>
 			<ul class="pagination" role="navigation" aria-label="Pagination">
-			{% for indice in noticias.paginator.page_range %}
-				{% if indice == noticias.number %}
+			{% for indice in articulos.paginator.page_range %}
+				{% if indice == articulos.number %}
 					<a class="button current">Estás en la página {{ pagina }}</a>
 				{% elif ambito and categoria %}
 					<li><a href="/actualidad/{{ indice }}?ambito={{ ambito }}&categoria={{ categoria }}" aria-label="Page {{ indice }}">{{ indice }}</a></li>

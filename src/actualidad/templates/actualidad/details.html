@@ -21,10 +21,10 @@
 
 {% block content %}	
 	<section class="section-container">
-	    <h1 class="section-title">{{ noticia.titulo }}</h1>
-	    <h5>{{ noticia.fecha }}</h5>
+	    <h1 class="section-title">{{ articulo.titulo }}</h1>
+	    <h5>{{ articulo.fecha }}</h5>
 	    <div class="content">
-	    	{{ noticia.noticia | markdown | safe }}
+	    	{{ articulo.noticia | markdown | safe }}
 	    </div>
 	</section>
 {% endblock %}

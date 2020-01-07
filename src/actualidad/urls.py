@@ -17,7 +17,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path( 'noticia/<int:id>/', views.details, name='actualidad_noticia'),
+    path( 'articulo/<int:id>/', views.details, name='actualidad_articulo'),
     path( '<int:pagina>', views.main, name='actualidad_busqueda'),
     path( '', views.main, name='actualidad'),
     #url(r'^/$', include( 'delcien.inicio.urls')),

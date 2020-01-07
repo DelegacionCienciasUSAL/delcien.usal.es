@@ -1,7 +1,5 @@
 from django.contrib import admin
-from actualidad.models import Noticia
+from actualidad.models import Articulo, Evento
 
-class NoticiaAdmin( admin.ModelAdmin):
-	list_filter = ( 'categoria',)
-
-admin.site.register( Noticia, NoticiaAdmin)
+admin.site.register( Articulo)
+admin.site.register( Evento)
