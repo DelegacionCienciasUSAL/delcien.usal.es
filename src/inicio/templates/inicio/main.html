@@ -19,115 +19,110 @@
 
 {% block content %}	
 	<img src="http://fciencias.usal.es/images/stories/cienciaspanoramicag.jpg">
-        <div class="contenedor" id="intro">
-            <p>
-                Bienvenid@ a la página de la Delegación de la Facultad de Ciencias de la Universidad de
-                Salamanca.<br>
-                Nuestra facultad recoge 6 carreras : Ingeniería Geológica,
-                Geología, Estadística, Ingeniería Informática, Física
-                y Matemáticas; con sus respectivos grados, másteres
-                y post-grados.
-                <br><br>
-                En la delegación, nos encargamos de representar y velar por el
-                estudiante y sus intereses; además de organizar eventos en la
-                facultad y colaborar en el día a día en ésta.
-            </p>
-            {% if contenido.fotoFacultad %}
-                <img src="{{ contenido.fotoFacultad.url }}">
+    <div class="contenedor" id="intro">
+        <p>
+            Bienvenid@ a la página de la Delegación de la Facultad de Ciencias de la Universidad de
+            Salamanca.<br>
+            Nuestra facultad recoge 6 carreras : Ingeniería Geológica,
+            Geología, Estadística, Ingeniería Informática, Física
+            y Matemáticas; con sus respectivos grados, másteres
+            y post-grados.
+            <br><br>
+            En la delegación, nos encargamos de representar y velar por el
+            estudiante y sus intereses; además de organizar eventos en la
+            facultad y colaborar en el día a día en ésta.
+        </p>
+        {% if contenido.fotoFacultad %}
+            <img src="{{ contenido.fotoFacultad.url }}">
+        {% endif %}
+        <p>{{ contenido.bienvenida | markdown | safe }}</p>
+    </div>
+    <div class="contenedor" id="destacado">
+        <p>
+            {{ alertas }}
+        </p>
+    </div>
+    {% for seccion in sections %}
+    <section class="contenedor">
+        <h1 class="tituloSeccion">{{ seccion.titulo }}</h1>
+        {{ seccion.contenido | markdown | safe }}
+    </section>
+    {% endfor %}
+	<section id="events-peakView" class="section-container">
+        <h1 class="section-title">Próximos eventos 
+            <a href={% url 'actualidad' %}>Ver todos</a>
+        </h1>
+        <div class="content flex three-1000">
+            {% if eventos %}
+                {% for evento in eventos %}
+                    <div class="articleContainer full third-1000">
+                        <article class="card">
+                          <header>
+                            <h3>{{ evento.titulo }}<span class="date">{{ evento.fecha }}</span>
+                          </header>
+                          <footer>
+                            {{ evento.descripcion | markdown | safe }}
+                            {% if evento.enlace %}
+                                <a href="{{ evento.enlace }}">
+                                    Ir a la fuente
+                                </a>
+                            {% endif %}
+                          </footer>
+                        </article>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h5>No hay articulos disponibles</h5>
             {% endif %}
-            <p>{{ contenido.bienvenida | markdown | safe }}</p>
         </div>
-        <div class="contenedor" id="destacado">
-            <p>
-                {{ alertas }}
+    </section>
+    <section id="articles-peakView" class="section-container">
+        <h1 class="section-title">Últimas noticias 
+            <a href={% url 'actualidad' %}>Ver todas</a>
+        </h1>
+        <div class="content">
+            {% if articulos %}
+                {% for articulo in articulos %}
+                    <div class="articleContainer full">
+                        <article class="card">
+                          <header>
+                            <h3>{{ articulo.titulo }}<span class="date">{{ articulo.fecha }}</span>
+                          </header>
+                          <footer>
+                            {{ articulo.descripcion_corta }}
+                            <a class="button"
+                                href="{% url 'actualidad_articulo' articulo.id %}">
+                                Ver articulo
+                            </a>
+                          </footer>
+                        </article>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h5>No hay articulos disponibles</h5>
+            {% endif %}
+        </div>
+    </section>
+    <section id="google-calendar" class="section-container">
+        <h1 class="section-title">Mantente al Día con la Delegación</h1>
+        <div class="content flex five-1000">
+            <p class="full two-fifth-1000">
+                Mantente al día con lo que ocurre en la Delegación de tu
+                Facultad, sincronizando nuestro calendario con tu cuenta de
+                Google Calendar. Calendarios de exámenes, de trámites, de eventos, etcétera.
+                <br><br>
+                Puedes añadirlos fácilmente a tu cuenta de google y acceder a ellos cuando quieras, ponerte recordatorios,
+                y colaborar añadiendo aquellas fechas que consideres importantes.
             </p>
+            <iframe 
+                src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;src=si0ok7vr6fg8b2uj5bba2gsl0s%40group.calendar.google.com&amp;color=%23AB8B00&amp;ctz=Africa%2FCeuta" 
+                style="border-width:0" 
+                width="800" 
+                height="500" 
+                frameborder="0" 
+                scrolling="no"
+                class="full three-fifth-1000" />
         </div>
-        {% for seccion in sections %}
-        <section class="contenedor">
-            <h1 class="tituloSeccion">{{ seccion.titulo }}</h1>
-            {{ seccion.contenido | markdown | safe }}
-        </section>
-        {% endfor %}
-		<section class="tipo-contenedor">
-        	<h1 id="titulo-seccion">Actividades en la Facultad</h1>
-        	<div class="contenedor-imagen-texto">
-                <div class="tabs two">
-                  <input id='tab-1' type='radio' name='tabgroupB' checked />
-                  <label class="pseudo button toggle" for="tab-1">Forest</label>
-                  <input id='tab-2' type='radio' name='tabgroupB'>
-                  <label class="pseudo button toggle" for="tab-2">Lake</label>
-                  <div class="row">
-                    <div>
-                      <img src="/static/inicio/assets/img/cosmos-1.jpg">
-                    </div>
-
-                    <div>
-                      <img src="/static/inicio/assets/img/cosmos-2.jpg">
-                    </div>
-                  </div>
-                </div>
-
-		        <div class="contenido-texto">
-		        	Estas son las actividades que actualmente se están llevando a cabo en la facultad. Si estás interesado en
-		        	alguna de ellas, contacta con los organizadores haciendo click en la imagen o con nosotros a través de nuestra
-		        	página de "Contacto".
-		        </div>
-		    </div>
-        </section>
-        <section class="tipo-contenedor">
-        	<h1 id="titulo-sección">Mantente al día con la Delegación</h1>
-            <div class="contenedor-dos-columnas" id="googleCalendar">
-                <div class="contenido-texto">
-                    <p>
-                        Mantente al día con lo que ocurre en la Delegación de tu
-                        Facultad, sincronizando nuestro calendario con tu cuenta de
-                        Google Calendar. Calendarios de exámenes, de trámites, de eventos, etcétera.
-                        <br><br>
-                        Puedes añadirlos fácilmente a tu cuenta de google y acceder a ellos cuando quieras, ponerte recordatorios,
-                        y colaborar añadiendo aquellas fechas que consideres importantes.
-                    </p>
-                </div>
-                <div class="contenido-texto">
-                    <div class="googleCalendar">
-                    <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;src=si0ok7vr6fg8b2uj5bba2gsl0s%40group.calendar.google.com&amp;color=%23AB8B00&amp;ctz=Africa%2FCeuta" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no">
-                    </div>
-                    </iframe>
-                </div>
-        	</div>
-        </section>
-        <section class="section-container">
-            <h1 class="section-title">Otra sección</h1>
-            <div class="content">
-                <div class="contenido-texto">
-                    <p>
-                        La delegación de Estudiantes de la Faclutad de Ciencias, es
-                        el órgano oficial de representación estudiantil que procura
-                        <br>kteubvdluksjnrfgdlkjbnlksjrtmdnfb
-                        Tanto interna como externamente, la delegación se encarga
-                        de asegurar los intereses del alumno mediante[...]
-                        Organizamos eventos de charlas, []<br>
-                        También recogemos todo aquello que pueda serte útil para tu
-                        formación en la carrera; desde disponer de forma fácil de
-                        los horarios de aulas, bibliotecas y clases, hasta apuntes
-                        y soporte para tus trabajos en la carrera.
-                    <br><br>
-                    </p>
-                </div>
-                <div class="contenido-texto">
-                    <p>
-                        Oranizamos actividades para los estudiantes y colaboramos contigo para llevar a cabo tus
-                        ideas. Algunas de nuestras últimas actividades son la Feria de San Alberto, concursos durante
-                        las Fiestas de la Facultad, [ ... ].
-                    </p>
-                </div>
-                <div class="contenido-texto">
-                    <p>
-                        Nuestra filosofía es permitir y favorecer el trabajo en la Facultad. Puedes contactar con nosotros
-                        para proponer cualquier proyecto, ayudar o empezar nuevos proyectos en nuestra organización de 
-                        <a href="https://github.com/DelegacionCienciasUSAL" >Github</a>.<br>
-                        Actualmente está el proyecto de esta misma página web.
-                    </p>
-                </div>
-            </div>
-        </section>
+    </section>
+    
 {% endblock %}

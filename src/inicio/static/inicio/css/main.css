@@ -22,11 +22,69 @@ div#googleCalendar div{border:none; box-shadow:none;}
 }
 
 div#destacado{
-    box-shadow: 0px 0px 3px 1px #d22020;
+  box-shadow: 0px 0px 3px 1px #d22020;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 1.1em;
+}
 
-    text-decoration: underline;
+#articles-peakView .section-title,
+#events-peakView .section-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-right: 1em;
+}
 
-    font-weight: bold;
+#articles-peakView .section-title a,
+#events-peakView .section-title a{
+  font-size: 14px;
+}
 
-    font-size: 1.1em;
+a{ color: var(--rojo-toro);}
+
+#events-peakView .content{
+  align-items: stretch;
+}
+
+#events-peakView .content .card{
+  height: 100%;
+  border: none;
+}
+
+#events-peakView .content .articleContainer .card{
+  padding: 0 1px;
+  border-bottom: 1px solid #ccc;
+}
+
+#events-peakView .content .articleContainer:nth-of-type(3n) .card{
+  border-bottom: none;
+}
+
+#events-peakView .content .articleContainer{
+  padding-left: 0;
+}
+
+span.date{
+  font-weight: normal;
+  font-size: 14px;
+  margin-left: 14px;
+}
+
+.articleContainer .button{float: right;}
+
+@media screen and (min-width: 1000px){
+  #events-peakView .content .articleContainer .card{
+    border-bottom: none;
+    border-right: 1px solid #ccc;
+  }
+
+  #events-peakView .content .articleContainer:nth-of-type(3n) .card{
+    border-right: none;
+  }
+
+  #articles-peakView .section-title,
+  #events-peakView .section-title{
+    padding-right: 0;
+  }
 }
